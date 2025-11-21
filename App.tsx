@@ -18,6 +18,10 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
+    /* 
+      NOTE: Using MemoryRouter for the preview environment to prevent security errors.
+      For GitHub Pages deployment, it is recommended to switch this back to <HashRouter>.
+    */
     <MemoryRouter>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
