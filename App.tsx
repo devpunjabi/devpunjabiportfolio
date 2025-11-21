@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { MemoryRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import PageLayout from './components/PageLayout';
@@ -18,11 +18,7 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
-    /* 
-      NOTE: Using MemoryRouter for the preview environment to prevent security errors.
-      For GitHub Pages deployment, it is recommended to switch this back to <HashRouter>.
-    */
-    <MemoryRouter>
+    <HashRouter>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
@@ -58,7 +54,7 @@ const App: React.FC = () => {
           </div>
         </footer>
       </div>
-    </MemoryRouter>
+    </HashRouter>
   );
 };
 
