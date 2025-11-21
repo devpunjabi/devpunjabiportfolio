@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send, Linkedin, Instagram, Twitter, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, Send, Linkedin, Instagram, Twitter, ArrowRight, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,16 +12,52 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { name, email, subject, message } = formData;
-    const mailtoLink = `mailto:devpunjabi@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
-    window.location.href = mailtoLink;
+    
+    // ------------------------------------------------------------------
+    // TODO: Replace these with your actual EmailJS credentials
+    // Get them from https://dashboard.emailjs.com/
+    // ------------------------------------------------------------------
+    const SERVICE_ID = 'YOUR_SERVICE_ID';
+    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+    const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
+    if (SERVICE_ID === 'YOUR_SERVICE_ID') {
+      alert('Please configure your EmailJS credentials in Contact.tsx to send emails.');
+      return;
+    }
+
+    setStatus('sending');
+
+    try {
+      // These parameters must match the variables in your EmailJS template
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Dev Punjabi' // Optional, depends on your template
+      };
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      console.error('FAILED...', error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -32,7 +70,7 @@ const Contact: React.FC = () => {
           transition={{ duration: 1 }}
         >
           <h2 className="text-stone-500 font-medium tracking-widest uppercase text-sm mb-6 pl-1">Reach Out</h2>
-          <h1 className="text-2xl md:text-1xl lg:text-1xl font-serif font-light text-stone-900 leading-[0.7]">I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</h1>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-light text-stone-900 leading-[1.1] tracking-tight">I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</h1>
         </motion.div>
       </div>
 
@@ -54,8 +92,8 @@ const Contact: React.FC = () => {
             <div className="space-y-12">
               <div>
                 <h4 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Email</h4>
-                <a href="mailto:hello@devpunjabi.com" className="text-2xl md:text-3xl font-serif text-stone-900 hover:text-stone-600 transition-colors">
-                  hello@devpunjabi.com
+                <a href="mailto:devpunjabi203@gmail.com" className="text-2xl md:text-3xl font-serif text-stone-900 hover:text-stone-600 transition-colors">
+                  devpunjabi203@gmail.com
                 </a>
               </div>
 
@@ -114,6 +152,20 @@ const Contact: React.FC = () => {
                   placeholder="your@email.com"
                 />
               </div>
+              
+              <div className="space-y-1">
+                 <label htmlFor="subject" className="block text-xs font-bold uppercase tracking-widest text-stone-400">Subject</label>
+                 <input
+                   type="text"
+                   id="subject"
+                   name="subject"
+                   value={formData.subject}
+                   onChange={handleChange}
+                   required
+                   className="w-full py-3 border-b border-stone-200 focus:border-stone-900 transition-colors outline-none bg-transparent text-lg text-stone-900 placeholder-stone-300"
+                   placeholder="What is this about?"
+                 />
+               </div>
 
               <div className="space-y-1">
                 <label htmlFor="message" className="block text-xs font-bold uppercase tracking-widest text-stone-400">Message</label>
@@ -129,15 +181,42 @@ const Contact: React.FC = () => {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="group flex items-center space-x-3 text-stone-900 font-bold text-lg mt-4"
-              >
-                <span>Send Message</span>
-                <span className="group-hover:translate-x-2 transition-transform duration-300">
-                   <ArrowRight size={20} />
-                </span>
-              </button>
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className={`group flex items-center space-x-3 font-bold text-lg transition-all duration-300 ${
+                    status === 'sending' ? 'text-stone-400 cursor-wait' : 'text-stone-900 hover:opacity-80'
+                  }`}
+                >
+                  {status === 'sending' ? (
+                    <>
+                      <span>Sending...</span>
+                      <Loader2 size={20} className="animate-spin" />
+                    </>
+                  ) : status === 'success' ? (
+                    <>
+                      <span className="text-green-600">Message Sent</span>
+                      <CheckCircle size={20} className="text-green-600" />
+                    </>
+                  ) : status === 'error' ? (
+                    <>
+                      <span className="text-red-600">Failed to send</span>
+                      <AlertCircle size={20} className="text-red-600" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <span className="group-hover:translate-x-2 transition-transform duration-300">
+                        <ArrowRight size={20} />
+                      </span>
+                    </>
+                  )}
+                </button>
+                {status === 'error' && (
+                  <p className="mt-2 text-sm text-red-500">Please try again later or email directly.</p>
+                )}
+              </div>
             </form>
           </motion.div>
 
