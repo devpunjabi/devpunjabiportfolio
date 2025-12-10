@@ -3,16 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PageData } from '../types';
-import { NAVIGATION } from '../constants';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface Props {
   data?: PageData;
 }
 
 const PageLayout: React.FC<Props> = ({ data }) => {
+  const { t, navigation } = useLanguage();
   // State to track which image should be displayed in the sticky left panel
-  // Use optional chaining to prevent crash if data is undefined
   const [activeImage, setActiveImage] = useState(data?.heroImage || '');
   const [activeImageId, setActiveImageId] = useState('hero');
 
@@ -34,8 +34,8 @@ const PageLayout: React.FC<Props> = ({ data }) => {
   }
 
   // Calculate next page for navigation
-  const currentIndex = NAVIGATION.findIndex(item => item.id === data.id);
-  const nextItem = NAVIGATION[(currentIndex + 1) % NAVIGATION.length];
+  const currentIndex = navigation.findIndex(item => item.id === data.id);
+  const nextItem = navigation[(currentIndex + 1) % navigation.length];
 
   return (
     <div className="min-h-screen bg-[#fafaf9]">
@@ -141,7 +141,7 @@ const PageLayout: React.FC<Props> = ({ data }) => {
           {nextItem && (
             <div className="min-h-[40vh] flex items-center justify-center mt-20 lg:mt-0">
               <Link to={nextItem.path} className="group relative inline-flex flex-col items-center">
-                  <span className="text-sm font-bold tracking-widest uppercase text-stone-400 mb-4 group-hover:text-stone-600 transition-colors">Up Next</span>
+                  <span className="text-sm font-bold tracking-widest uppercase text-stone-400 mb-4 group-hover:text-stone-600 transition-colors">{t('upNext')}</span>
                   <span className="text-5xl md:text-7xl font-serif text-stone-300 group-hover:text-stone-900 transition-colors duration-500">
                     {nextItem.label}
                   </span>

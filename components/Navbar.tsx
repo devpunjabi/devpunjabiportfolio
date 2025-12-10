@@ -1,13 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Circle } from 'lucide-react';
-import { NAVIGATION } from '../constants';
+import { Menu, X, Circle, Globe } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { navigation, t, language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -40,13 +42,13 @@ const Navbar: React.FC = () => {
             <span className={`font-sans font-bold text-lg tracking-tighter ${
               scrolled || isOpen || !isHome ? 'text-stone-900' : 'text-stone-900'
             }`}>
-              Welcome
+              {t('welcome')}
             </span>
           </NavLink>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex space-x-10">
-            {NAVIGATION.map((item) => (
+          <div className="hidden lg:flex items-center space-x-10">
+            {navigation.map((item) => (
               <NavLink
                 key={item.id}
                 to={item.path}
@@ -63,15 +65,35 @@ const Navbar: React.FC = () => {
                 )}
               </NavLink>
             ))}
+            
+            {/* Language Toggle (Desktop) */}
+            <button 
+              onClick={toggleLanguage}
+              className="ml-4 flex items-center space-x-1 text-xs font-bold tracking-widest text-stone-900 border border-stone-300 px-3 py-1 rounded-full hover:bg-stone-200 transition-colors uppercase"
+            >
+              <Globe size={12} />
+              <span>{language === 'en' ? 'DE' : 'EN'}</span>
+            </button>
           </div>
 
-          {/* Mobile Toggle */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden z-50 focus:outline-none text-stone-900`}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile Controls */}
+          <div className="flex items-center space-x-4 lg:hidden z-50">
+             {/* Language Toggle (Mobile) */}
+             <button 
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 text-xs font-bold tracking-widest text-stone-900 border border-stone-300 px-3 py-1 rounded-full bg-white/50"
+            >
+              <span>{language === 'en' ? 'DE' : 'EN'}</span>
+            </button>
+
+            {/* Mobile Toggle */}
+            <button 
+              onClick={() => setIsOpen(!isOpen)}
+              className={`focus:outline-none text-stone-900`}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -90,7 +112,7 @@ const Navbar: React.FC = () => {
               animate="visible"
               className="flex flex-col space-y-8"
             >
-              {NAVIGATION.map((item) => (
+              {navigation.map((item) => (
                 <NavLink
                   key={item.id}
                   to={item.path}

@@ -4,8 +4,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import * as HomeImages from '../assets/home/images';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Home: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="relative min-h-screen flex items-center bg-[#fafaf9] overflow-hidden">
       
@@ -32,15 +35,15 @@ const Home: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h2 className="text-stone-500 font-medium tracking-[0.2em] text-sm mb-8 pl-1">PORTFOLIO 2024</h2>
+            <h2 className="text-stone-500 font-medium tracking-[0.2em] text-sm mb-8 pl-1">{t('portfolioTitle')}</h2>
             
             <h1 className="text-7xl md:text-8xl lg:text-[10rem] font-serif font-light text-stone-900 leading-[0.9] -ml-1 mb-10 tracking-tighter">
-              Quiet <br/>
-              <span className="italic text-stone-400">Mastery</span>
+              {t('heroTitleLine1')} <br/>
+              <span className="italic text-stone-400">{t('heroTitleLine2')}</span>
             </h1>
             
             <p className="text-stone-600 text-xl md:text-2xl max-w-lg font-light leading-relaxed mb-12">
-              A digital sanctuary exploring the intersection of technology, art, and the human spirit.
+              {t('heroDescription')}
             </p>
             
             <div className="flex flex-wrap items-center gap-8">
@@ -48,7 +51,7 @@ const Home: React.FC = () => {
                 <span className="w-12 h-12 rounded-full border border-stone-300 flex items-center justify-center group-hover:bg-stone-900 group-hover:border-stone-900 transition-all duration-300">
                    <ArrowRight className="text-stone-400 group-hover:text-white transition-colors" size={20} />
                 </span>
-                <span className="text-lg font-medium text-stone-800 group-hover:text-stone-900">Begin Journey</span>
+                <span className="text-lg font-medium text-stone-800 group-hover:text-stone-900">{t('beginJourney')}</span>
               </Link>
             </div>
           </motion.div>
@@ -76,7 +79,7 @@ const Home: React.FC = () => {
       </div>
       
       <div className="absolute bottom-8 left-8 md:left-12 text-stone-400 text-xs font-mono tracking-widest">
-        EST. 2025 — DESIGNED BY Dev
+        {t('designedBy')}
       </div>
     </div>
   );
