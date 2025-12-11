@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Circle, Globe } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar: React.FC = () => {
@@ -21,27 +20,21 @@ const Navbar: React.FC = () => {
     setIsOpen(false);
   }, [location]);
 
-  const navVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.05 } }
-  };
 
   const isHome = location.pathname === '/';
 
   return (
-    <nav 
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        scrolled || isOpen ? 'bg-[#fafaf9]/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'
-      }`}
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 ${scrolled || isOpen ? 'bg-[#fafaf9]/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-8'
+        }`}
     >
       <div className="max-w-[90rem] mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <NavLink to="/" className="flex items-center space-x-2 z-50 group">
             <Circle className={`h-3 w-3 fill-current ${scrolled || !isHome ? 'text-stone-900' : 'text-stone-900'}`} />
-            <span className={`font-sans font-bold text-lg tracking-tighter ${
-              scrolled || isOpen || !isHome ? 'text-stone-900' : 'text-stone-900'
-            }`}>
+            <span className={`font-sans font-bold text-lg tracking-tighter ${scrolled || isOpen || !isHome ? 'text-stone-900' : 'text-stone-900'
+              }`}>
               {t('welcome')}
             </span>
           </NavLink>
@@ -65,9 +58,9 @@ const Navbar: React.FC = () => {
                 )}
               </NavLink>
             ))}
-            
+
             {/* Language Toggle (Desktop) */}
-            <button 
+            <button
               onClick={toggleLanguage}
               className="ml-4 flex items-center space-x-1 text-xs font-bold tracking-widest text-stone-900 border border-stone-300 px-3 py-1 rounded-full hover:bg-stone-200 transition-colors uppercase"
             >
@@ -78,8 +71,8 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Controls */}
           <div className="flex items-center space-x-4 lg:hidden z-50">
-             {/* Language Toggle (Mobile) */}
-             <button 
+            {/* Language Toggle (Mobile) */}
+            <button
               onClick={toggleLanguage}
               className="flex items-center space-x-1 text-xs font-bold tracking-widest text-stone-900 border border-stone-300 px-3 py-1 rounded-full bg-white/50"
             >
@@ -87,7 +80,7 @@ const Navbar: React.FC = () => {
             </button>
 
             {/* Mobile Toggle */}
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
               className={`focus:outline-none text-stone-900`}
             >
@@ -97,37 +90,30 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
+
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={{ opacity: 0, height: 0, transition: { delay: 0.2 } }}
-            className="fixed inset-0 bg-[#fafaf9] z-40 lg:hidden pt-32 px-6"
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-[#fafaf9] z-40 lg:hidden pt-32 px-6 h-screen"
+        >
+          <div
+            className="flex flex-col space-y-8"
           >
-            <motion.div 
-              variants={navVariants}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-col space-y-8"
-            >
-              {navigation.map((item) => (
-                <NavLink
-                  key={item.id}
-                  to={item.path}
-                  className={({ isActive }) => `
-                    text-4xl font-serif font-light
-                    ${isActive ? 'text-stone-900 italic' : 'text-stone-400'}
-                  `}
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {navigation.map((item) => (
+              <NavLink
+                key={item.id}
+                to={item.path}
+                className={({ isActive }) => `
+                  text-4xl font-serif font-light
+                  ${isActive ? 'text-stone-900 italic' : 'text-stone-400'}
+                `}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
