@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { HashRouter, MemoryRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import PageLayout from './components/PageLayout';
@@ -18,7 +18,7 @@ const ScrollToTop = () => {
 
 // Component that consumes context to define routes with dynamic content
 const AppRoutes = () => {
-  const { content, t } = useLanguage();
+  const { content } = useLanguage();
 
   return (
     <Routes>
@@ -40,7 +40,7 @@ const AppRoutes = () => {
   );
 };
 
-// Footer also needs translation
+// Footer
 const Footer = () => {
   const { t } = useLanguage();
   return (
@@ -60,16 +60,11 @@ const Footer = () => {
 };
 
 const App: React.FC = () => {
-  // Automatically detect if we are in a restricted preview environment (blob URL)
-  // or a standard production environment.
-  // Preview = MemoryRouter (avoids security errors and crashes)
-  // Production = HashRouter (supports GitHub Pages navigation)
-  const isPreview = window.location.protocol === 'blob:' || window.location.href.includes('blob:');
-  const Router = isPreview ? MemoryRouter : HashRouter;
-
+  // HashRouter is the most compatible router for static hosting like GitHub Pages
+  // because it uses the URL hash (#) to manage routing, avoiding server-side configuration requirements.
   return (
     <LanguageProvider>
-      <Router>
+      <HashRouter>
         <ScrollToTop />
         <div className="flex flex-col min-h-screen">
           <Navbar />
@@ -78,7 +73,7 @@ const App: React.FC = () => {
           </main>
           <Footer />
         </div>
-      </Router>
+      </HashRouter>
     </LanguageProvider>
   );
 };
