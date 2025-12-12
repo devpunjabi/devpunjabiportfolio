@@ -14,9 +14,7 @@ export const NAVIGATION_EN: NavItem[] = [
   { label: 'Personal Bio', path: '/personal-bio', id: 'personal-bio' },
   { label: 'Career', path: '/career-bio', id: 'career-bio' },
   { label: 'Taekwondo', path: '/taekwondo', id: 'taekwondo' },
-  { label: 'Paintings', path: '/paintings', id: 'paintings' },
-  { label: 'Sculptures', path: '/sculptures', id: 'sculptures' },
-  { label: 'Digital 3D', path: '/digital-3d', id: 'digital-3d' },
+  { label: 'Arts', path: '/arts', id: 'arts' },
   { label: 'Fitness', path: '/fitness', id: 'fitness' },
   { label: 'Contact', path: '/contact', id: 'contact' },
 ];
@@ -25,15 +23,13 @@ export const NAVIGATION_DE: NavItem[] = [
   { label: 'Über Mich', path: '/personal-bio', id: 'personal-bio' },
   { label: 'Karriere', path: '/career-bio', id: 'career-bio' },
   { label: 'Taekwondo', path: '/taekwondo', id: 'taekwondo' },
-  { label: 'Gemälde', path: '/paintings', id: 'paintings' },
-  { label: 'Skulpturen', path: '/sculptures', id: 'sculptures' },
-  { label: 'Digital 3D', path: '/digital-3d', id: 'digital-3d' },
+  { label: 'Kunst', path: '/arts', id: 'arts' },
   { label: 'Fitness', path: '/fitness', id: 'fitness' },
   { label: 'Kontakt', path: '/contact', id: 'contact' },
 ];
 
 // For backward compatibility if imported directly (though we should use context)
-export const NAVIGATION = NAVIGATION_EN; 
+export const NAVIGATION = NAVIGATION_EN;
 
 // --- PAGE DATA (ENGLISH) ---
 

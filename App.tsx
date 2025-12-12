@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import PageLayout from './components/PageLayout';
 import Contact from './components/Contact';
+import Arts from './components/Arts';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
 // Scroll to top on route change wrapper
@@ -23,17 +24,15 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      
+
       {/* Map specific routes based on context content */}
       <Route path="/personal-bio" element={<PageLayout data={content['personal-bio']} />} />
       <Route path="/career-bio" element={<PageLayout data={content['career-bio']} />} />
       <Route path="/taekwondo" element={<PageLayout data={content['taekwondo']} />} />
-      <Route path="/paintings" element={<PageLayout data={content['paintings']} />} />
-      <Route path="/sculptures" element={<PageLayout data={content['sculptures']} />} />
-      <Route path="/digital-3d" element={<PageLayout data={content['digital-3d']} />} />
+      <Route path="/arts" element={<Arts />} />
       <Route path="/fitness" element={<PageLayout data={content['fitness']} />} />
       <Route path="/contact" element={<Contact />} />
-      
+
       {/* Fallback */}
       <Route path="*" element={<Home />} />
     </Routes>
@@ -50,9 +49,9 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} {t('rightsReserved')}
         </p>
         <div className="mt-4 flex justify-center space-x-6">
-           <a href="#" className="text-slate-400 hover:text-white transition-colors">Twitter</a>
-           <a href="#" className="text-slate-400 hover:text-white transition-colors">LinkedIn</a>
-           <a href="#" className="text-slate-400 hover:text-white transition-colors">Instagram</a>
+          <a href="#" className="text-slate-400 hover:text-white transition-colors">Twitter</a>
+          <a href="#" className="text-slate-400 hover:text-white transition-colors">LinkedIn</a>
+          <a href="#" className="text-slate-400 hover:text-white transition-colors">Instagram</a>
         </div>
       </div>
     </footer>

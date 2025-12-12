@@ -16,13 +16,14 @@ export interface PageData {
   themeColor: string;
 }
 
-export type PageId = 
-  | 'personal-bio' 
-  | 'career-bio' 
-  | 'taekwondo' 
-  | 'paintings' 
-  | 'sculptures' 
-  | 'digital-3d' 
+export type PageId =
+  | 'personal-bio'
+  | 'career-bio'
+  | 'taekwondo'
+  | 'arts'
+  | 'paintings'
+  | 'sculptures'
+  | 'digital-3d'
   | 'fitness'
   | 'contact';
 
