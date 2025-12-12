@@ -6,6 +6,7 @@ import Home from './components/Home';
 import PageLayout from './components/PageLayout';
 import Contact from './components/Contact';
 import Arts from './components/Arts';
+import Career from './components/Career';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
 // Scroll to top on route change wrapper
@@ -27,7 +28,7 @@ const AppRoutes = () => {
 
       {/* Map specific routes based on context content */}
       <Route path="/personal-bio" element={<PageLayout data={content['personal-bio']} />} />
-      <Route path="/career-bio" element={<PageLayout data={content['career-bio']} />} />
+      <Route path="/career-bio" element={<Career />} />
       <Route path="/taekwondo" element={<PageLayout data={content['taekwondo']} />} />
       <Route path="/arts" element={<Arts />} />
       <Route path="/fitness" element={<PageLayout data={content['fitness']} />} />
