@@ -91,12 +91,12 @@ export const PAGES_DATA_EN: Record<string, PageData> = {
     title: 'Sculptures',
     subtitle: 'Form from Chaos',
     description: `Working with clay and metal allows me to bring dimensions to life. Sculpture is the art of removing what is not needed to reveal the truth within.`,
-    heroImage: SculpturesImages.HERO,
+    heroImage: SculpturesImages.GANESHA,
     themeColor: 'bg-stone-800',
     gallery: [
-      { id: 'sc1', imageUrl: SculpturesImages.HARVEST, title: 'The Harvest', description: 'Bronze cast.', span: true },
-      { id: 'sc2', imageUrl: SculpturesImages.ABSTRACT_I, title: 'Abstract I', description: 'fired clay.' },
-      { id: 'sc3', imageUrl: SculpturesImages.ABSTRACT_II, title: 'Abstract II', description: 'Welded steel.' },
+      { id: 'sc1', imageUrl: SculpturesImages.PHANTOM, title: 'Phantom F4 Scaled model', description: 'Bronze cast.', span: true },
+      { id: 'sc2', imageUrl: SculpturesImages.GANESHA, title: 'Ganesha sculpture', description: 'fired clay.' },
+      { id: 'sc3', imageUrl: SculpturesImages.TIGER, title: 'Tiger Portrait', description: 'Welded steel.' },
     ]
   },
   'digital-3d': {
