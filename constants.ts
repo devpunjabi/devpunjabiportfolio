@@ -6,6 +6,8 @@ import * as TaekwondoImages from './assets/taekwondo/images';
 import * as PaintingsImages from './assets/paintings/images';
 import * as SculpturesImages from './assets/sculptures/images';
 import * as FitnessImages from './assets/fitness/images';
+import * as Digital3DImages from './assets/digital-3d/images';
+
 
 
 // --- NAVIGATION ---
