@@ -1,7 +1,7 @@
 import Phantom from './phantom.JPEG';
-import Ganesha from './ganesha.heic';
+import Ganesha from './ganesha.png';
 import Cabin from './cabin.JPEG';
-import Tiger from './tiger.HEIC';
+import Tiger from './tiger.png';
 
 export const PHANTOM = Phantom;
 export const GANESHA = Ganesha;
