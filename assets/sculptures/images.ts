@@ -1,9 +1,9 @@
-import Hero from './hero.png';
-import Harvest from './harvest.png';
-import AbstractI from './abstract-i.png';
-import AbstractII from './abstract-ii.png';
+import Phantom from './phantom.png';
+import Ganesha from './ganesha.png';
+import Cabin from './cabin.png';
+import Tiger from './tiger.png';
 
-export const HERO = Hero;
-export const HARVEST = Harvest;
-export const ABSTRACT_I = AbstractI;
-export const ABSTRACT_II = AbstractII;
+export const PHANTOM = Phantom;
+export const GANESHA = Ganesha;
+export const CABIN = Cabin;
+export const TIGER = Tiger;
