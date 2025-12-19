@@ -6,7 +6,8 @@ import * as TaekwondoImages from './assets/taekwondo/images';
 import * as PaintingsImages from './assets/paintings/images';
 import * as SculpturesImages from './assets/sculptures/images';
 import * as Digital3DImages from './assets/digital-3d/images';
-import * as FitnessImages from './assets/fitness/images';
+import * as Digital3DImages from './assets/digital-3d/images';
+
 
 // --- NAVIGATION ---
 
@@ -15,7 +16,6 @@ export const NAVIGATION_EN: NavItem[] = [
   { label: 'Career', path: '/career-bio', id: 'career-bio' },
   { label: 'Taekwondo', path: '/taekwondo', id: 'taekwondo' },
   { label: 'Arts', path: '/arts', id: 'arts' },
-  { label: 'Fitness', path: '/fitness', id: 'fitness' },
   { label: 'Contact', path: '/contact', id: 'contact' },
 ];
 
@@ -24,7 +24,6 @@ export const NAVIGATION_DE: NavItem[] = [
   { label: 'Karriere', path: '/career-bio', id: 'career-bio' },
   { label: 'Taekwondo', path: '/taekwondo', id: 'taekwondo' },
   { label: 'Kunst', path: '/arts', id: 'arts' },
-  { label: 'Fitness', path: '/fitness', id: 'fitness' },
   { label: 'Kontakt', path: '/contact', id: 'contact' },
 ];
 
@@ -113,19 +112,6 @@ export const PAGES_DATA_EN: Record<string, PageData> = {
       { id: 'd3d3', imageUrl: Digital3DImages.CHARACTER, title: 'Character Study', description: 'Anatomy practice.', span: true },
     ]
   },
-  'fitness': {
-    id: 'fitness',
-    title: 'Fitness & Wellbeing',
-    subtitle: 'Mens Sana In Corpore Sano',
-    description: `A healthy mind resides in a healthy body. Through yoga, weightlifting, and mindfulness meditation, I maintain the balance required to perform at a high level in other areas of life.`,
-    heroImage: FitnessImages.HERO,
-    themeColor: 'bg-teal-900',
-    gallery: [
-      { id: 'fw1', imageUrl: FitnessImages.RUN, title: 'Morning Run', description: 'Clarity at dawn.' },
-      { id: 'fw2', imageUrl: FitnessImages.YOGA, title: 'Balance', description: 'Yoga practice.', span: true },
-      { id: 'fw3', imageUrl: FitnessImages.NUTRITION, title: 'Nutrition', description: 'Fueling the engine.' },
-    ]
-  }
 };
 
 export const PAGES_DATA = PAGES_DATA_EN; // Default export for compatibility
@@ -191,12 +177,12 @@ export const PAGES_DATA_DE: Record<string, PageData> = {
     title: 'Skulpturen',
     subtitle: 'Form aus dem Chaos',
     description: `Die Arbeit mit Ton und Metall ermöglicht es mir, Dimensionen zum Leben zu erwecken. Bildhauerei ist die Kunst, das zu entfernen, was nicht benötigt wird, um die Wahrheit darin zu enthüllen.`,
-    heroImage: SculpturesImages.HERO,
+    heroImage: SculpturesImages.GANESHA,
     themeColor: 'bg-stone-800',
     gallery: [
-      { id: 'sc1', imageUrl: SculpturesImages.HARVEST, title: 'Die Ernte', description: 'Bronzeguss.', span: true },
-      { id: 'sc2', imageUrl: SculpturesImages.ABSTRACT_I, title: 'Abstrakt I', description: 'Gebrannter Ton.' },
-      { id: 'sc3', imageUrl: SculpturesImages.ABSTRACT_II, title: 'Abstrakt II', description: 'Geschweißter Stahl.' },
+      { id: 'sc1', imageUrl: SculpturesImages.PHANTOM, title: 'Die Ernte', description: 'Bronzeguss.', span: true },
+      { id: 'sc2', imageUrl: SculpturesImages.GANESHA, title: 'Abstrakt I', description: 'Gebrannter Ton.' },
+      { id: 'sc3', imageUrl: SculpturesImages.TIGER, title: 'Abstrakt II', description: 'Geschweißter Stahl.' },
     ]
   },
   'digital-3d': {
@@ -211,21 +197,9 @@ export const PAGES_DATA_DE: Record<string, PageData> = {
       { id: 'd3d2', imageUrl: Digital3DImages.CITY, title: 'Stadtbild', description: 'Low-Poly-Kunst.' },
       { id: 'd3d3', imageUrl: Digital3DImages.CHARACTER, title: 'Charakterstudie', description: 'Anatomie-Übung.', span: true },
     ]
-  },
-  'fitness': {
-    id: 'fitness',
-    title: 'Fitness & Wohlbefinden',
-    subtitle: 'Mens Sana In Corpore Sano',
-    description: `Ein gesunder Geist wohnt in einem gesunden Körper. Durch Yoga, Gewichtheben und Achtsamkeitsmeditation bewahre ich das Gleichgewicht, das erforderlich ist, um in anderen Lebensbereichen Höchstleistungen zu erbringen.`,
-    heroImage: FitnessImages.HERO,
-    themeColor: 'bg-teal-900',
-    gallery: [
-      { id: 'fw1', imageUrl: FitnessImages.RUN, title: 'Morgenlauf', description: 'Klarheit im Morgengrauen.' },
-      { id: 'fw2', imageUrl: FitnessImages.YOGA, title: 'Balance', description: 'Yoga-Praxis.', span: true },
-      { id: 'fw3', imageUrl: FitnessImages.NUTRITION, title: 'Ernährung', description: 'Den Motor antreiben.' },
-    ]
   }
 };
+
 
 // --- UI TEXT ---
 
