@@ -1,5 +1,9 @@
+import Hero from './hero.png';
+import Harvest from './harvest.png';
+import AbstractI from './abstract-i.png';
+import AbstractII from './abstract-ii.png';
 
-export const HERO = 'https://picsum.photos/id/106/1600/900';
-export const HARVEST = 'https://picsum.photos/id/112/800/1200';
-export const ABSTRACT_I = 'https://picsum.photos/id/113/800/600';
-export const ABSTRACT_II = 'https://picsum.photos/id/114/800/600';
+export const HERO = Hero;
+export const HARVEST = Harvest;
+export const ABSTRACT_I = AbstractI;
+export const ABSTRACT_II = AbstractII;
