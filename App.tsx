@@ -9,11 +9,16 @@ import Arts from './components/Arts';
 import Career from './components/Career';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
-// Scroll to top on route change wrapper
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // requestAnimationFrame ensures the layout is finalized before scrolling to top
+    const handleScroll = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+      document.documentElement.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    };
+    const frameId = requestAnimationFrame(handleScroll);
+    return () => cancelAnimationFrame(frameId);
   }, [pathname]);
   return null;
 };

@@ -4,6 +4,8 @@ export interface GalleryItem {
   title: string;
   description?: string;
   span?: boolean; // If true, takes up 2 columns in grid
+  tags?: string[]; // Optional tech stack tags
+  subtitle?: string; // Optional subtitle (like dates)
 }
 
 export interface PageData {

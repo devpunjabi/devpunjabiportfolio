@@ -53,13 +53,35 @@ export const PAGES_DATA_EN: Record<string, PageData> = {
     id: 'career-bio',
     title: 'Professional Journey',
     subtitle: 'Engineering Solutions, Leading Teams',
-    description: `Over the last decade, I have architected scalable systems and led engineering teams to success. My focus is on clean code, user-centric design, and sustainable tech ecosystems.`,
+    description: `Over the last decade, I have architected scalable cloud systems and led engineering teams to success. My focus is on clean code, robust software architecture, and sustainable high-performance technology ecosystems.`,
     heroImage: CareerBioImages.HERO,
     themeColor: 'bg-blue-900',
     gallery: [
-      { id: 'cb1', imageUrl: CareerBioImages.TECH_STACK, title: 'Tech Stack', description: 'Modern web technologies.' },
-      { id: 'cb2', imageUrl: CareerBioImages.COLLABORATION, title: 'Collaboration', description: 'Building together.', span: true },
-      { id: 'cb3', imageUrl: CareerBioImages.WORKSPACE, title: 'Workspace', description: 'Minimalist setup for maximum focus.' },
+      {
+        id: 'cb1',
+        imageUrl: CareerBioImages.TECH_STACK,
+        title: 'Lead Software Architect',
+        subtitle: '2023 - Present | Enterprise Platforms',
+        description: 'Led a talented engineering team in designing a modern, cloud-native collaborative platform. Architected scalable event-driven microservices handling millions of daily operations. Spearheaded migrations to AWS and Kubernetes, cutting compute costs by 35%. Establishes high-performance engineering standards for React, TypeScript, and Node.js codebases.',
+        tags: ['AWS', 'TypeScript', 'Kubernetes', 'Node.js', 'React', 'Docker']
+      },
+      {
+        id: 'cb2',
+        imageUrl: CareerBioImages.COLLABORATION,
+        title: 'Senior Full-Stack Engineer',
+        subtitle: '2020 - 2023 | Digital Systems',
+        description: 'Developed and optimized user-centric web applications using Next.js, Node.js, and GraphQL. Reduced main-thread blocking time, boosting mobile Core Web Vitals scores by 40%. Built automated, self-healing CI/CD deployment pipelines, shortening production release cycles from days to minutes.',
+        tags: ['React', 'Next.js', 'PostgreSQL', 'GraphQL', 'Tailwind', 'CI/CD'],
+        span: true
+      },
+      {
+        id: 'cb3',
+        imageUrl: CareerBioImages.WORKSPACE,
+        title: 'Software Developer',
+        subtitle: '2018 - 2020 | API & Database Services',
+        description: 'Engineered core database systems and RESTful APIs using Python, Django, and PostgreSQL. Designed clean database schemas and high-throughput query caching layers. Collaborated closely in agile sprints, engaging in constructive code reviews and unit testing campaigns.',
+        tags: ['Python', 'Django', 'PostgreSQL', 'Redis', 'REST APIs', 'Git']
+      }
     ]
   },
   'taekwondo': {
@@ -125,7 +147,7 @@ export const PAGES_DATA_EN: Record<string, PageData> = {
     gallery: [
       { id: 'fw1', imageUrl: FitnessImages.RUN, title: 'Morning Run', description: 'Clarity at dawn.' },
       { id: 'fw2', imageUrl: FitnessImages.YOGA, title: 'Balance', description: 'Yoga practice.', span: true },
-      { id: 'fw3', imageUrl: FitnessImages.NUTRITION, title: 'Nutrition', description: 'Fueling the engine.' },
+      { id: 'fw3', imageUrl: FitnessImages.NUTRITION, title: 'Nutrition', description: '<p className="mb-4">Research over the last two decades has shown that the gut microbiome plays a major role in regulating brain function, emotional state, and behavior through what is known as the microbiota–gut–brain axis. Trillions of microorganisms in the intestine communicate with the brain through multiple pathways, including the vagus nerve, immune signaling, hormones, and microbial metabolites such as short-chain fatty acids. Gut bacteria also influence the production and regulation of neurotransmitters and their precursors, including serotonin, dopamine, and GABA, which are closely linked to mood, motivation, anxiety, and cognitive function. Alterations in gut microbial composition (dysbiosis) have been associated with depression, anxiety disorders, stress responses, and certain neurodegenerative diseases. While the field is still evolving, growing evidence from animal studies, human cohort studies, neuroimaging research, and clinical trials suggests that gut microbial health can significantly influence emotional regulation and mental well-being.</p><div className="mt-6 border-l-2 border-stone-300 pl-4"><h4 className="text-sm font-bold uppercase tracking-wider text-stone-500 mb-3">Key Research References</h4><ul className="space-y-2 text-sm list-disc list-inside"><li><a href="https://scholar.google.com/scholar?q=Microbiota%E2%80%93neuroepithelial+signalling+across+the+gut%E2%80%93brain+axis" target="_blank" rel="noopener noreferrer">Microbiota–neuroepithelial signalling across the gut–brain axis</a> (Nature Reviews Microbiology, 2025)</li><li><a href="https://scholar.google.com/scholar?q=The+gut+microbiota%E2%80%93brain+axis+in+behaviour+and+brain+disorders" target="_blank" rel="noopener noreferrer">The gut microbiota–brain axis in behaviour and brain disorders</a> (Nature Reviews Microbiology, 2021)</li><li><a href="https://scholar.google.com/scholar?q=Gut-brain-crosstalk%3A+the+vagus+nerve+and+the+microbiota-gut-brain+axis+in+depression" target="_blank" rel="noopener noreferrer">Gut-brain-crosstalk: the vagus nerve and the microbiota-gut-brain axis in depression</a> (Journal of Affective Disorders Reports, 2023)</li><li><a href="https://scholar.google.com/scholar?q=The+Microbiota-Gut-Brain+Axis%3A+From+Motility+to+Mood" target="_blank" rel="noopener noreferrer">The Microbiota-Gut-Brain Axis: From Motility to Mood</a> (2021 Review)</li><li><a href="https://scholar.google.com/scholar?q=Brain-gut-microbiota+axis%3A+bidirectional+regulatory+mechanisms+and+disease+interactions" target="_blank" rel="noopener noreferrer">Brain-gut-microbiota axis: bidirectional regulatory mechanisms and disease interactions</a> (2026 Review)</li></ul><p className="text-xs text-stone-500 italic mt-3">These reviews provide some of the strongest current summaries of the molecular, neurological, and psychiatric evidence linking gut microbial ecology to brain activity and mood regulation.</p></div>' },
     ]
   }
 };
@@ -152,13 +174,35 @@ export const PAGES_DATA_DE: Record<string, PageData> = {
     id: 'career-bio',
     title: 'Beruflicher Werdegang',
     subtitle: 'Lösungen Entwickeln, Teams Leiten',
-    description: `In den letzten zehn Jahren habe ich skalierbare Systeme entworfen und Engineering-Teams zum Erfolg geführt. Mein Fokus liegt auf Clean Code, nutzerzentriertem Design und nachhaltigen Tech-Ökosystemen.`,
+    description: `In den letzten zehn Jahren habe ich skalierbare Cloud-Systeme entworfen und Engineering-Teams zum Erfolg geführt. Mein Fokus liegt auf Clean Code, robuster Softwarearchitektur und nachhaltigen Hochleistungs-Tech-Ökosystemen.`,
     heroImage: CareerBioImages.HERO,
     themeColor: 'bg-blue-900',
     gallery: [
-      { id: 'cb1', imageUrl: CareerBioImages.TECH_STACK, title: 'Tech Stack', description: 'Moderne Webtechnologien.' },
-      { id: 'cb2', imageUrl: CareerBioImages.COLLABORATION, title: 'Zusammenarbeit', description: 'Gemeinsam aufbauen.', span: true },
-      { id: 'cb3', imageUrl: CareerBioImages.WORKSPACE, title: 'Arbeitsplatz', description: 'Minimalistisches Setup für maximalen Fokus.' },
+      {
+        id: 'cb1',
+        imageUrl: CareerBioImages.TECH_STACK,
+        title: 'Lead Software Architect',
+        subtitle: '2023 - Heute | Enterprise-Plattformen',
+        description: 'Leitung eines talentierten Entwicklerteams beim Design einer modernen, kollaborativen Cloud-Plattform. Architektur skalierbarer, ereignisgesteuerter Microservices für Millionen tägliche Operationen. Durchführung der Migration auf AWS und Kubernetes, wodurch die Rechenkosten um 35 % gesenkt wurden. Etablierung anspruchsvoller Entwicklungsstandards für React, TypeScript und Node.js-Codebasen.',
+        tags: ['AWS', 'TypeScript', 'Kubernetes', 'Node.js', 'React', 'Docker']
+      },
+      {
+        id: 'cb2',
+        imageUrl: CareerBioImages.COLLABORATION,
+        title: 'Senior Full-Stack Engineer',
+        subtitle: '2020 - 2023 | Digitale Systeme',
+        description: 'Entwicklung und Optimierung benutzerzentrierter Webanwendungen mit Next.js, Node.js und GraphQL. Reduzierung der Blockierzeit des Hauptthreads, wodurch die Core Web Vitals-Werte auf Mobilgeräten um 40 % gesteigert wurden. Aufbau automatisierter, selbstheilender CI/CD-Pipelines, wodurch Produktions-Release-Zyklen von Tagen auf Minuten verkürzt wurden.',
+        tags: ['React', 'Next.js', 'PostgreSQL', 'GraphQL', 'Tailwind', 'CI/CD'],
+        span: true
+      },
+      {
+        id: 'cb3',
+        imageUrl: CareerBioImages.WORKSPACE,
+        title: 'Software Developer',
+        subtitle: '2018 - 2020 | API- & Datenbankdienste',
+        description: 'Entwicklung von Kern-Datenbanksystemen und RESTful APIs unter Verwendung von Python, Django und PostgreSQL. Entwurf sauberer Datenbankschemata und Caching-Ebenen für hohen Durchsatz. Enge Zusammenarbeit in agilen Sprints mit konstruktiven Code-Reviews und automatisierten Unit-Testing-Kampagnen.',
+        tags: ['Python', 'Django', 'PostgreSQL', 'Redis', 'REST APIs', 'Git']
+      }
     ]
   },
   'taekwondo': {
@@ -224,7 +268,7 @@ export const PAGES_DATA_DE: Record<string, PageData> = {
     gallery: [
       { id: 'fw1', imageUrl: FitnessImages.RUN, title: 'Morgenlauf', description: 'Klarheit im Morgengrauen.' },
       { id: 'fw2', imageUrl: FitnessImages.YOGA, title: 'Balance', description: 'Yoga-Praxis.', span: true },
-      { id: 'fw3', imageUrl: FitnessImages.NUTRITION, title: 'Ernährung', description: 'Den Motor antreiben.' },
+      { id: 'fw3', imageUrl: FitnessImages.NUTRITION, title: 'Ernährung', description: '<p className="mb-4">Die Forschung der letzten zwei Jahrzehnte hat gezeigt, dass das Darmmikrobiom eine Hauptrolle bei der Regulierung der Gehirnfunktion, des emotionalen Zustands und des Verhaltens durch die sogenannte Mikrobiota-Darm-Hirn-Achse spielt. Billionen von Mikroorganismen im Darm kommunizieren mit dem Gehirn über mehrere Wege, darunter den Vagusnerv, Immunsignale, Hormone und mikrobielle Stoffwechselprodukte wie kurzkettige Fettsäuren. Darmbakterien beeinflussen auch die Produktion und Regulierung von Neurotransmittern und deren Vorstufen, einschließlich Serotonin, Dopamin und GABA, die eng mit Stimmung, Motivation, Angst und kognitiver Funktion verbunden sind. Veränderungen der mikrobiellen Zusammensetzung im Darm (Dysbiose) wurden mit Depressionen, Angststörungen, Stressreaktionen und bestimmten neurodegenerativen Erkrankungen in Verbindung gebracht. Obwohl sich das Forschungsfeld noch entwickelt, weisen zunehmende Beweise aus Tierstudien, menschlichen Kohortenstudien, Neuroimaging-Forschung und klinischen Studien darauf hin, dass die mikrobielle Gesundheit des Darms die emotionale Regulation und das geistige Wohlbefinden erheblich beeinflussen kann.</p><div className="mt-6 border-l-2 border-stone-300 pl-4"><h4 className="text-sm font-bold uppercase tracking-wider text-stone-500 mb-3">Wichtige Forschungsreferenzen</h4><ul className="space-y-2 text-sm list-disc list-inside"><li><a href="https://scholar.google.com/scholar?q=Microbiota%E2%80%93neuroepithelial+signalling+across+the+gut%E2%80%93brain+axis" target="_blank" rel="noopener noreferrer">Microbiota–neuroepithelial signalling across the gut–brain axis</a> (Nature Reviews Microbiology, 2025)</li><li><a href="https://scholar.google.com/scholar?q=The+gut+microbiota%E2%80%93brain+axis+in+behaviour+and+brain+disorders" target="_blank" rel="noopener noreferrer">The gut microbiota–brain axis in behaviour and brain disorders</a> (Nature Reviews Microbiology, 2021)</li><li><a href="https://scholar.google.com/scholar?q=Gut-brain-crosstalk%3A+the+vagus+nerve+and+the+microbiota-gut-brain+axis+in+depression" target="_blank" rel="noopener noreferrer">Gut-brain-crosstalk: the vagus nerve and the microbiota-gut-brain axis in depression</a> (Journal of Affective Disorders Reports, 2023)</li><li><a href="https://scholar.google.com/scholar?q=The+Microbiota-Gut-Brain+Axis%3A+From+Motility+to+Mood" target="_blank" rel="noopener noreferrer">The Microbiota-Gut-Brain Axis: From Motility to Mood</a> (2021 Review)</li><li><a href="https://scholar.google.com/scholar?q=Brain-gut-microbiota+axis%3A+bidirectional+regulatory+mechanisms+and+disease+interactions" target="_blank" rel="noopener noreferrer">Brain-gut-microbiota axis: bidirectional regulatory mechanisms and disease interactions</a> (2026 Review)</li></ul><p className="text-xs text-stone-500 italic mt-3">Diese Übersichtsarbeiten bieten einige der fundiertesten aktuellen Zusammenfassungen der molekularen, neurologischen und psychiatrischen Belege, die die mikrobielle Ökologie des Darms mit Gehirnaktivität und Stimmungsregulation verbinden.</p></div>' },
     ]
   }
 };
