@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Briefcase, Calendar, Terminal } from 'lucide-react';
+import { ArrowRight, Briefcase, Calendar } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import Reveal from './Reveal';
 
 const Career: React.FC = () => {
   const { content, navigation, t } = useLanguage();
@@ -72,17 +73,17 @@ const Career: React.FC = () => {
     <div className="min-h-screen bg-stone-50 relative">
       {/* Top Scroll Indicator */}
       <div
-        className="fixed top-0 left-0 h-1 bg-stone-900 z-50 transition-all duration-100 ease-out"
+        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-stone-700 via-stone-900 to-stone-700 z-50 transition-all duration-100 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
       {/* Large Title Header */}
-      <div className="pt-36 pb-16 px-6 md:px-12 lg:px-20 max-w-[90rem] mx-auto animate-slide-up">
+      <div className="pt-36 pb-16 px-6 md:px-12 lg:px-20 max-w-[90rem] mx-auto">
         <div>
-          <span className="text-[10px] font-bold tracking-[0.25em] text-stone-400 uppercase mb-4 block pl-1">
+          <span className="text-[10px] font-bold tracking-[0.25em] text-stone-400 uppercase mb-4 block pl-1 animate-fade-in animate-delay-100">
             {data.subtitle}
           </span>
-          <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 leading-[0.95] tracking-tight">
+          <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 leading-[0.95] tracking-tight animate-blur-up">
             {data.title}
           </h1>
         </div>
@@ -92,22 +93,31 @@ const Career: React.FC = () => {
       <div className="flex flex-col lg:flex-row max-w-[95rem] mx-auto">
 
         {/* LEFT COLUMN: Sticky Exhibition Frame (Desktop) */}
-        <div className="hidden lg:flex w-[38%] h-screen sticky top-0 p-8 xl:p-12 z-10 flex-col justify-center">
+        <div className="hidden lg:flex w-[38%] h-screen sticky top-0 p-8 xl:p-12 z-10 flex-col justify-center animate-scale-in animate-delay-200">
           <div className="w-full h-[65vh] rounded-[2.5rem] overflow-hidden shadow-2xl relative border border-blue-600/20 shadow-blue-900/[0.04] bg-stone-100">
             {allImages.map((img) => (
               <img
                 key={img.id}
                 src={img.imageUrl}
                 alt={img.title}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 cubic-bezier(0.16, 1, 0.3, 1) ${
+                className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   activeImageId === img.id
-                    ? 'opacity-100 scale-100 filter-none'
-                    : 'opacity-0 scale-105 blur-sm'
+                    ? 'opacity-100 scale-100 blur-none animate-kenburns'
+                    : 'opacity-0 scale-110 blur-md'
                 }`}
               />
             ))}
             {/* Elegant vignette overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/10 via-transparent to-stone-900/5 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/40 via-transparent to-stone-900/5 pointer-events-none" />
+
+            {/* Live role caption inside the frame */}
+            <div className="absolute bottom-0 left-0 right-0 p-8 pointer-events-none">
+              <div key={activeImageId} className="animate-slide-up">
+                <span className="text-2xl font-serif font-light text-white leading-tight drop-shadow-md">
+                  {allImages.find(img => img.id === activeImageId)?.title}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -116,18 +126,20 @@ const Career: React.FC = () => {
 
           {/* Core Professional Overview Block */}
           <div
-            className="min-h-[50vh] lg:min-h-[60vh] flex flex-col justify-center py-16 animate-slide-up animate-delay-100"
+            className="min-h-[50vh] lg:min-h-[60vh] flex flex-col justify-center py-16"
             onMouseEnter={() => setActiveImageId('hero')}
           >
             {/* Mobile Hero Image */}
-            <div className="lg:hidden w-full aspect-[4/3] rounded-3xl overflow-hidden mb-8 shadow-xl border border-stone-200/50 bg-stone-100">
+            <Reveal variant="img-curtain" className="lg:hidden w-full aspect-[4/3] rounded-3xl mb-8 shadow-xl border border-stone-200/50 bg-stone-100">
               <img src={data.heroImage} alt={data.title} className="w-full h-full object-cover" />
-            </div>
+            </Reveal>
 
-            <p className="text-2xl md:text-3xl font-serif font-light leading-relaxed text-stone-800">
-              {data.description}
-            </p>
-            <div className="w-16 h-[2px] bg-stone-300 mt-10 rounded-full"></div>
+            <Reveal variant="blur-up">
+              <p className="text-2xl md:text-3xl font-serif font-light leading-relaxed text-stone-800">
+                {data.description}
+              </p>
+              <div className="w-16 h-[2px] bg-stone-300 mt-10 rounded-full"></div>
+            </Reveal>
           </div>
 
           {/* Interactive Timeline Core Container */}
@@ -161,11 +173,12 @@ const Career: React.FC = () => {
                   </span>
 
                   {/* Mobile Experience Card Image */}
-                  <div className="lg:hidden w-full aspect-[4/3] rounded-3xl overflow-hidden mb-8 shadow-lg border border-stone-200/50 bg-stone-100">
-                    <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover" />
-                  </div>
+                  <Reveal variant="img-curtain" className="lg:hidden w-full aspect-[4/3] rounded-3xl mb-8 shadow-lg border border-stone-200/50 bg-stone-100">
+                    <img src={item.imageUrl} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+                  </Reveal>
 
                   {/* Timeline Role Detail Card */}
+                  <Reveal variant="fade-up" delay={index * 80}>
                   <div className={`p-6 md:p-8 rounded-3xl border transition-all duration-500 bg-white ${
                     isActive 
                       ? 'border-stone-900/40 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.08)]' 
@@ -213,6 +226,7 @@ const Career: React.FC = () => {
                       )}
                     </div>
                   </div>
+                  </Reveal>
                 </div>
               );
             })}
@@ -221,19 +235,21 @@ const Career: React.FC = () => {
           {/* Staggered Navigation Transition */}
           {nextItem && (
             <div className="min-h-[40vh] flex items-center justify-center pt-20">
-              <Link to={nextItem.path} className="group relative inline-flex flex-col items-center">
-                <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-stone-400 mb-4 group-hover:text-stone-600 transition-colors">
-                  {t('upNext')}
-                </span>
-                
-                <span className="text-4xl md:text-6xl font-serif font-light text-stone-300 group-hover:text-stone-900 transition-all duration-700 italic select-none">
-                  {nextItem.label}
-                </span>
+              <Reveal variant="scale-in">
+                <Link to={nextItem.path} className="group relative inline-flex flex-col items-center">
+                  <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-stone-400 mb-4 group-hover:text-stone-600 transition-colors">
+                    {t('upNext')}
+                  </span>
 
-                <div className="mt-8 w-14 h-14 rounded-full border border-stone-200 flex items-center justify-center bg-white shadow-sm group-hover:bg-stone-900 group-hover:border-stone-900 group-hover:shadow-md transition-all duration-500 cursor-pointer">
-                  <ArrowRight className="text-stone-400 group-hover:text-white transition-colors duration-300" size={18} />
-                </div>
-              </Link>
+                  <span className="text-4xl md:text-6xl font-serif font-light text-stone-300 group-hover:text-stone-900 transition-all duration-700 italic select-none group-hover:not-italic group-hover:tracking-wide">
+                    {nextItem.label}
+                  </span>
+
+                  <div className="mt-8 w-14 h-14 rounded-full border border-stone-200 flex items-center justify-center bg-white shadow-sm group-hover:bg-stone-900 group-hover:border-stone-900 group-hover:shadow-xl group-hover:scale-110 transition-all duration-500 cursor-pointer">
+                    <ArrowRight className="text-stone-400 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300" size={18} />
+                  </div>
+                </Link>
+              </Reveal>
             </div>
           )}
 

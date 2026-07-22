@@ -1,3 +1,5 @@
+import Research from '../personal-bio/IMG_6816.png';
+import Cosmos from './IMG_5268.png';
 
-export const DECORATIVE_1 = 'https://picsum.photos/id/1005/600/800';
-export const DECORATIVE_2 = 'https://picsum.photos/id/106/600/800';
+export const DECORATIVE_1 = Research; // Presenting research at KIT — science in action
+export const DECORATIVE_2 = Cosmos;   // Gazing up at framed astronomy prints — the focal portrait

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { PageData, GalleryItem } from '../types';
 import { ArrowRight, X, ChevronLeft, ChevronRight, Maximize2, ZoomIn, ZoomOut } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import Reveal from './Reveal';
 
 interface EnhancedGalleryItem extends GalleryItem {
   category: 'paintings' | 'sculptures' | 'digital-3d';
@@ -106,12 +107,12 @@ const Arts: React.FC = () => {
     <div className="bg-stone-50 min-h-screen relative pb-32">
       
       {/* Header */}
-      <div className="pt-36 pb-12 px-6 md:px-12 lg:px-20 max-w-[90rem] mx-auto animate-slide-up">
+      <div className="pt-36 pb-12 px-6 md:px-12 lg:px-20 max-w-[90rem] mx-auto">
         <div>
-          <span className="text-[10px] font-bold tracking-[0.25em] text-stone-400 uppercase mb-4 block pl-1">
+          <span className="text-[10px] font-bold tracking-[0.25em] text-stone-400 uppercase mb-4 block pl-1 animate-fade-in animate-delay-100">
             {language === 'en' ? 'CREATIVE GALLERY' : 'KREATIVE GALERIE'}
           </span>
-          <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 leading-[0.95] tracking-tight">
+          <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 leading-[0.95] tracking-tight animate-blur-up">
             {language === 'en' ? 'Exhibitions & Form' : 'Ausstellungen & Form'}
           </h1>
         </div>
@@ -149,16 +150,18 @@ const Arts: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item, index) => (
             <div
-              key={item.id}
+              key={`${activeTab}-${item.id}`}
               onClick={() => handleOpenLightbox(index)}
               className="group flex flex-col gap-4 cursor-pointer animate-slide-up"
               style={{ animationDelay: `${(index % 3) * 100}ms` }}
             >
               {/* Image Frame Container */}
-              <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-stone-100 border border-stone-200/40 shadow-sm relative group">
+              <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-stone-100 border border-stone-200/40 shadow-sm relative group transition-shadow duration-500 hover:shadow-2xl hover:shadow-stone-900/10">
                 <img
                   src={item.imageUrl}
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:brightness-[0.85]"
                 />
                 
@@ -289,19 +292,21 @@ const Arts: React.FC = () => {
       {/* Up Next Page Navigation */}
       {nextItem && selectedItemIndex === null && (
         <div className="py-24 flex items-center justify-center">
-          <Link to={nextItem.path} className="group relative inline-flex flex-col items-center">
-            <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-stone-400 mb-4 group-hover:text-stone-600 transition-colors">
-              {t('upNext')}
-            </span>
-            
-            <span className="text-4xl md:text-6xl font-serif font-light text-stone-300 group-hover:text-stone-900 transition-all duration-700 italic select-none">
-              {nextItem.label}
-            </span>
+          <Reveal variant="scale-in">
+            <Link to={nextItem.path} className="group relative inline-flex flex-col items-center">
+              <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-stone-400 mb-4 group-hover:text-stone-600 transition-colors">
+                {t('upNext')}
+              </span>
 
-            <div className="mt-8 w-14 h-14 rounded-full border border-stone-200 flex items-center justify-center bg-white shadow-sm group-hover:bg-stone-900 group-hover:border-stone-900 group-hover:shadow-md transition-all duration-500 cursor-pointer">
-              <ArrowRight className="text-stone-400 group-hover:text-white transition-colors duration-300" size={18} />
-            </div>
-          </Link>
+              <span className="text-4xl md:text-6xl font-serif font-light text-stone-300 group-hover:text-stone-900 transition-all duration-700 italic select-none group-hover:not-italic group-hover:tracking-wide">
+                {nextItem.label}
+              </span>
+
+              <div className="mt-8 w-14 h-14 rounded-full border border-stone-200 flex items-center justify-center bg-white shadow-sm group-hover:bg-stone-900 group-hover:border-stone-900 group-hover:shadow-xl group-hover:scale-110 transition-all duration-500 cursor-pointer">
+                <ArrowRight className="text-stone-400 group-hover:text-white group-hover:translate-x-0.5 transition-all duration-300" size={18} />
+              </div>
+            </Link>
+          </Reveal>
         </div>
       )}
 

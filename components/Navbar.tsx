@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
               {/* Elegant Language Switcher */}
               <button
                 onClick={toggleLanguage}
-                className="ml-4 flex items-center space-x-1.5 text-[10px] font-bold tracking-widest text-stone-900 bg-white border border-stone-200 px-3.5 py-1.5 rounded-full hover:bg-stone-900 hover:text-stone-50 hover:border-stone-900 shadow-sm transition-all duration-300 uppercase cursor-pointer"
+                className="group ml-4 flex items-center space-x-1.5 text-[10px] font-bold tracking-widest text-stone-900 bg-white border border-stone-200 px-3.5 py-1.5 rounded-full hover:bg-stone-900 hover:text-stone-50 hover:border-stone-900 shadow-sm transition-all duration-300 uppercase cursor-pointer"
                 title="Change Language / Sprache wechseln"
               >
                 <Globe size={11} className="transition-transform duration-500 group-hover:rotate-180" />

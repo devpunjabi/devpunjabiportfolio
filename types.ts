@@ -27,6 +27,7 @@ export type PageId =
   | 'sculptures'
   | 'digital-3d'
   | 'fitness'
+  | 'side-projects'
   | 'contact';
 
 export interface NavItem {

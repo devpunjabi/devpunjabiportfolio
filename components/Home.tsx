@@ -16,7 +16,6 @@ const Home: React.FC = () => {
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }}>
       </div>
 
-      {/* Soft Gradient Blob */}
       {/* Soft Gradient Blob - Static */}
       <div
         className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-stone-200/50 rounded-full blur-3xl pointer-events-none opacity-40 scale-110"
@@ -38,7 +37,7 @@ const Home: React.FC = () => {
             </p>
 
             <div className="flex flex-wrap items-center gap-8">
-              <Link to="/personal-bio" className="group flex items-center space-x-4">
+              <Link to="/career-bio" className="group flex items-center space-x-4">
                 <span className="w-12 h-12 rounded-full border border-stone-300 flex items-center justify-center group-hover:bg-stone-900 group-hover:border-stone-900 transition-all duration-300">
                   <ArrowRight className="text-stone-400 group-hover:text-white transition-colors" size={20} />
                 </span>

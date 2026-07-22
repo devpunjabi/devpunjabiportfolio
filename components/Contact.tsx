@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, Linkedin, Instagram, Twitter, ArrowRight, CheckCircle, AlertCircle, Loader2, Info, ArrowUpRight } from 'lucide-react';
+import { MapPin, Linkedin, Instagram, Twitter, ArrowRight, CheckCircle, AlertCircle, Loader2, Info, ArrowUpRight, X } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -62,20 +62,23 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-stone-50 relative pb-28">
+      {/* Ambient background warmth */}
+      <div className="ambient-blob top-[-10%] right-[-10%] w-[600px] h-[600px] bg-amber-200/30 opacity-40" />
+
       {/* Header Section */}
-      <div className="pt-36 pb-12 px-6 md:px-12 lg:px-20 max-w-[90rem] mx-auto animate-slide-up">
+      <div className="pt-36 pb-12 px-6 md:px-12 lg:px-20 max-w-[90rem] mx-auto relative">
         <div>
-          <span className="text-[10px] font-bold tracking-[0.25em] text-stone-400 uppercase mb-4 block pl-1">
+          <span className="text-[10px] font-bold tracking-[0.25em] text-stone-400 uppercase mb-4 block pl-1 animate-fade-in animate-delay-100">
             {t('reachOut')}
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-serif font-light text-stone-900 leading-[1.05] tracking-tight max-w-4xl">
+          <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-serif font-light text-stone-900 leading-[1.05] tracking-tight max-w-4xl animate-blur-up">
             {t('reachOutTitle')}
           </h1>
         </div>
       </div>
 
       {/* Main Grid Content (Fixed Layout Bug) */}
-      <div className="max-w-[90rem] mx-auto px-6 md:px-12 lg:px-20 pt-8 animate-slide-up animate-delay-100">
+      <div className="max-w-[90rem] mx-auto px-6 md:px-12 lg:px-20 pt-8 relative animate-slide-up animate-delay-300">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 xl:gap-24 items-start">
 
           {/* Left Column: Contact Details (Takes 5 spans) */}

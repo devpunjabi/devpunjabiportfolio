@@ -1,5 +1,8 @@
+import Sculpting from './IMG_5168.png';
+import Mandala from './IMG_3831.png';
+import Prints from './IMG_4528.png';
 
-export const HERO = 'https://picsum.photos/id/134/1600/900';
-export const SCI_FI = 'https://picsum.photos/id/250/800/600';
-export const CITY = 'https://picsum.photos/id/238/800/600';
-export const CHARACTER = 'https://picsum.photos/id/287/800/1200';
+export const HERO = Sculpting;      // Digital sculpting on a tablet (page hero)
+export const SCULPTING = Sculpting; // Sculpting a model with a stylus
+export const MANDALA = Mandala;     // 3D-printed floral medallion ornament
+export const PRINTS = Prints;       // Resin/FDM prints with support structures
