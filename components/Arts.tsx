@@ -4,6 +4,10 @@ import { PageData, GalleryItem } from '../types';
 import { ArrowRight, X, ChevronLeft, ChevronRight, Maximize2, ZoomIn, ZoomOut } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Reveal from './Reveal';
+import Img from './Img';
+
+/** Three-up grid inside a 90rem container, collapsing to two then one column. */
+const GRID_SIZES = '(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 90vw';
 
 interface EnhancedGalleryItem extends GalleryItem {
   category: 'paintings' | 'sculptures' | 'digital-3d';
@@ -157,11 +161,10 @@ const Arts: React.FC = () => {
             >
               {/* Image Frame Container */}
               <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-stone-100 border border-stone-200/40 shadow-sm relative group transition-shadow duration-500 hover:shadow-2xl hover:shadow-stone-900/10">
-                <img
-                  src={item.imageUrl}
+                <Img
+                  image={item.imageUrl}
                   alt={item.title}
-                  loading="lazy"
-                  decoding="async"
+                  sizes={GRID_SIZES}
                   className="w-full h-full object-cover transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:brightness-[0.85]"
                 />
                 
@@ -252,9 +255,14 @@ const Arts: React.FC = () => {
 
             {/* Zoomable Image View */}
             <div className="w-full h-full flex items-center justify-center p-4 overflow-hidden rounded-[2rem]">
-              <img
-                src={currentArtwork.imageUrl}
+              {/* The lightbox is opened deliberately, so this one loads eagerly at
+                  the largest available width rather than waiting on lazy loading. */}
+              <Img
+                key={currentArtwork.id}
+                image={currentArtwork.imageUrl}
                 alt={currentArtwork.title}
+                sizes="90vw"
+                priority
                 className="max-h-full max-w-full object-contain rounded-2xl shadow-2xl transition-transform duration-300"
                 style={{ transform: `scale(${zoomScale})` }}
               />

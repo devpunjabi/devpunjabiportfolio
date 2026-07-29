@@ -1,6 +1,8 @@
+import { ImageAsset } from './assets/image';
+
 export interface GalleryItem {
   id: string;
-  imageUrl: string;
+  imageUrl: ImageAsset;
   title: string;
   description?: string;
   span?: boolean; // If true, takes up 2 columns in grid
@@ -13,7 +15,7 @@ export interface PageData {
   title: string;
   subtitle: string;
   description: string;
-  heroImage: string;
+  heroImage: ImageAsset;
   gallery: GalleryItem[];
   themeColor: string;
 }

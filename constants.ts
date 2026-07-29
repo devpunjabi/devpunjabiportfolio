@@ -60,34 +60,34 @@ export const PAGES_DATA_EN: Record<string, PageData> = {
     id: 'career-bio',
     title: 'Professional Journey',
     subtitle: 'Where Engineering Meets Research',
-    description: `I build technology that carries ideas from whiteboard to production. From scalable cloud architectures to machine-learning prototypes, my focus is on turning open questions into robust, working systems — engineering as an instrument of research.`,
+    description: `I build technology that carries ideas from whiteboard to production. From scalable architectures to machine-learning prototypes, my focus is on turning open questions into robust, working systems — engineering as an instrument of research.`,
     heroImage: CareerBioImages.HERO,
     themeColor: 'bg-blue-900',
     gallery: [
       {
         id: 'cb1',
         imageUrl: CareerBioImages.ARCHITECT,
-        title: 'Lead Software Architect',
-        subtitle: '2023 - Present | Enterprise Platforms',
-        description: 'Led a talented engineering team in designing a modern, cloud-native collaborative platform. Architected scalable event-driven microservices handling millions of daily operations. Spearheaded migrations to AWS and Kubernetes, cutting compute costs by 35%. Establishes high-performance engineering standards for React, TypeScript, and Node.js codebases.',
-        tags: ['AWS', 'TypeScript', 'Kubernetes', 'Node.js', 'React', 'Docker']
+        title: 'AI Researcher',
+        subtitle: '2021 - Present | Academia',
+        description: 'Led research projects in machine learning and AI, focusing on scalable algorithms and real-world applications for Chemical analysis. Published papers in top-tier journal and collaborated with interdisciplinary teams to advance the collaborative research environment.',
+        tags: ['LLMOps', 'Machine Learning', 'Docker', 'Node.js', 'React', 'Kubernetes', 'Python', 'PyTorch', 'TensorFlow']
       },
       {
         id: 'cb2',
         imageUrl: CareerBioImages.COLLABORATION,
-        title: 'Senior Full-Stack Engineer',
-        subtitle: '2020 - 2023 | Digital Systems',
-        description: 'Developed and optimized user-centric web applications using Next.js, Node.js, and GraphQL. Reduced main-thread blocking time, boosting mobile Core Web Vitals scores by 40%. Built automated, self-healing CI/CD deployment pipelines, shortening production release cycles from days to minutes.',
-        tags: ['React', 'Next.js', 'PostgreSQL', 'GraphQL', 'Tailwind', 'CI/CD'],
+        title: 'Senior Performance Engineer',
+        subtitle: '2016 - 2017 | Enterprise Web Applications',
+        description: 'Optimized web application performance and scalability, reducing load times by 40% through code refactoring and efficient database queries. Implemented CI/CD pipelines and automated testing frameworks, enhancing deployment speed and reliability.',
+        tags: ['HP Loadrunner', 'HP Performance Center', 'Oracle 11g', 'Apache Redhat', 'Java heap', 'Jmeter'],
         span: true
       },
       {
         id: 'cb3',
         imageUrl: CareerBioImages.ENGINEERING,
-        title: 'Software Developer',
-        subtitle: '2018 - 2020 | API & Database Services',
-        description: 'Engineered core database systems and RESTful APIs using Python, Django, and PostgreSQL. Designed clean database schemas and high-throughput query caching layers. Collaborated closely in agile sprints, engaging in constructive code reviews and unit testing campaigns.',
-        tags: ['Python', 'Django', 'PostgreSQL', 'Redis', 'REST APIs', 'Git']
+        title: 'Senior Software Developer',
+        subtitle: '2014 - 2016 | Enterprise Java Applications',
+        description: 'Developed and maintained enterprise Java applications, focusing on backend services and API integrations. Collaborated with cross-functional teams to design and implement new features, ensuring high code quality through rigorous testing and code reviews.',
+        tags: ['Java', 'Spring', 'Hibernate', 'MySQL', 'REST APIs', 'Git']
       }
     ]
   },
@@ -95,14 +95,14 @@ export const PAGES_DATA_EN: Record<string, PageData> = {
     id: 'taekwondo',
     title: 'Taekwondo',
     subtitle: 'Discipline, Respect, Spirit',
-    description: `Martial arts is not just about fighting; it is about conquering oneself. I have dedicated years to the art of Taekwondo, learning that true strength lies in gentleness and control.`,
+    description: `Martial arts is not just about fighting; it is about conquering oneself. I have dedicated more than 10 years to the art of Taekwondo, learning that true strength lies in gentleness and calm.`,
     heroImage: TaekwondoImages.HERO,
     themeColor: 'bg-red-900',
     gallery: [
-      { id: 'tk1', imageUrl: TaekwondoImages.COMMUNITY, title: 'The Dojang Family', description: 'Strength shared with the whole club.', span: true },
+      { id: 'tk1', imageUrl: TaekwondoImages.COMMUNITY, title: 'The Trainer C license course by TüBW', description: 'Completed advanced training to become a certified trainer', span: true },
       { id: 'tk2', imageUrl: TaekwondoImages.FORMS, title: 'Forms', description: 'Precision and stillness in every stance.' },
       { id: 'tk3', imageUrl: TaekwondoImages.COMPETITION, title: 'Competition', description: 'Respect first — the bow before the bout.' },
-      { id: 'tk4', imageUrl: TaekwondoImages.GRADING, title: 'Grading', description: 'Earning the next belt, one test at a time.' },
+      { id: 'tk4', imageUrl: TaekwondoImages.GRADING, title: 'Grading', description: 'Earning the black belt, the culmination of years of dedication.' },
       { id: 'tk5', imageUrl: TaekwondoImages.OFFICIATING, title: 'Beyond the Mat', description: 'Giving back at the scoring table.' },
     ]
   },
@@ -148,7 +148,7 @@ export const PAGES_DATA_EN: Record<string, PageData> = {
     gallery: [
       { id: 'd3d1', imageUrl: Digital3DImages.SCULPTING, title: 'Digital Sculpting', description: 'Shaping clay on a tablet.' },
       { id: 'd3d2', imageUrl: Digital3DImages.MANDALA, title: 'Mandala', description: '3D-printed floral medallion.' },
-      { id: 'd3d3', imageUrl: Digital3DImages.PRINTS, title: 'Forms in Progress', description: 'Fresh prints, supports still on.', span: true },
+      { id: 'd3d3', imageUrl: Digital3DImages.PRINTS, title: 'Nature and Fanstasy forms', description: 'Fresh prints', span: true },
     ]
   },
   'fitness': {
@@ -176,7 +176,7 @@ export const PAGES_DATA_EN: Record<string, PageData> = {
         id: 'sp1',
         imageUrl: Digital3DImages.MANDALA,
         title: 'Art from Mathematics — The 3D Mandelbulb',
-        description: 'Rendering the 3D Mandelbulb, a fractal born from iterating complex-number math in three dimensions. Each image is pure equation made visible: infinite, self-similar detail emerging from a handful of lines of code, where mathematics quietly becomes sculpture.',
+        description: 'Rendering the 3D Mandelbulb, a fractal born from iterating complex-number math in three dimensions. Each pattern is pure equation made visible: infinite, self-similar detail emerging from a handful of lines of code, where mathematics quietly becomes sculpture.',
         span: true
       },
       {
@@ -379,10 +379,10 @@ export const UI_TEXT = {
     sending: "Sending...",
     messageSent: "Message Sent",
     failedToSend: "Failed to send",
-    portfolioTitle: "DEV PUNJABI — RESEARCH & ENGINEERING",
+    portfolioTitle: "DEV PUNJABI — RESEARCH, ENGINEERING & ARTS",
     heroTitleLine1: "Curiosity,",
     heroTitleLine2: "Engineered",
-    heroDescription: "Research engineer building at the frontier of machine intelligence — drawing on art, martial arts, and the mountains to see a little further.",
+    heroDescription: "Research engineer building systems at the frontier of machine intelligence — drawing on art, martial arts, and the mountains to see a little further.",
     beginJourney: "Explore the Work",
     designedBy: "EST. 2025 — DESIGNED BY Dev",
     rightsReserved: "Dev Punjabi. All rights reserved."

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { MapPin, Linkedin, Instagram, Twitter, ArrowRight, CheckCircle, AlertCircle, Loader2, Info, ArrowUpRight, X } from 'lucide-react';
+import { MapPin, ArrowRight, CheckCircle, AlertCircle, Loader2, ArrowUpRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '../contexts/LanguageContext';
+import { EMAILJS, EMAILJS_CONFIGURED, SITE, SOCIALS } from '../config/site';
 
 const Contact: React.FC = () => {
   const { t, language } = useLanguage();
@@ -13,26 +14,30 @@ const Contact: React.FC = () => {
   });
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [showConfigModal, setShowConfigModal] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  /**
+   * Hand the message off to the visitor's own mail client. Used when EmailJS
+   * credentials are absent so the form always does something useful rather than
+   * exposing the site's configuration state to whoever is trying to get in touch.
+   */
+  const handOffToMailClient = () => {
+    const body = `${formData.message}\n\n— ${formData.name} (${formData.email})`;
+    window.location.href =
+      `mailto:${SITE.email}` +
+      `?subject=${encodeURIComponent(formData.subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // ------------------------------------------------------------------
-    // Configure EmailJS keys (placeholders by default)
-    // Get them from https://dashboard.emailjs.com/
-    // ------------------------------------------------------------------
-    const SERVICE_ID = 'YOUR_SERVICE_ID';
-    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-    const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
-
-    if (SERVICE_ID === 'YOUR_SERVICE_ID') {
-      setShowConfigModal(true);
+    if (!EMAILJS_CONFIGURED) {
+      handOffToMailClient();
       return;
     }
 
@@ -44,10 +49,15 @@ const Contact: React.FC = () => {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_name: 'Dev Punjabi'
+        to_name: SITE.name
       };
 
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      await emailjs.send(
+        EMAILJS.serviceId,
+        EMAILJS.templateId,
+        templateParams,
+        EMAILJS.publicKey
+      );
 
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -55,7 +65,7 @@ const Contact: React.FC = () => {
       // Reset status after 5 seconds
       setTimeout(() => setStatus('idle'), 5000);
     } catch (error) {
-      console.error('FAILED...', error);
+      console.error('Contact form submission failed', error);
       setStatus('error');
     }
   };
@@ -95,11 +105,11 @@ const Contact: React.FC = () => {
                 <span className="text-[10px] font-mono font-bold text-stone-400 uppercase tracking-widest block mb-2">
                   {t('email')}
                 </span>
-                <a 
-                  href="mailto:devpunjabi203@gmail.com" 
+                <a
+                  href={`mailto:${SITE.email}`}
                   className="text-xl md:text-2xl font-serif text-stone-900 hover:text-stone-600 transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300 w-fit"
                 >
-                  devpunjabi203@gmail.com
+                  {SITE.email}
                   <ArrowUpRight size={16} className="text-stone-300 group-hover:text-stone-600 transition-colors" />
                 </a>
               </div>
@@ -112,34 +122,34 @@ const Contact: React.FC = () => {
                 <p className="text-lg text-stone-700 font-light leading-relaxed flex items-start gap-2.5">
                   <MapPin size={18} className="text-stone-400 mt-1 flex-shrink-0" />
                   <span>
-                    Karlsruhe<br />
-                    Germany
+                    {SITE.location.city}<br />
+                    {SITE.location.country}
                   </span>
                 </p>
               </div>
 
-              {/* Social icons */}
-              <div>
-                <span className="text-[10px] font-mono font-bold text-stone-400 uppercase tracking-widest block mb-4">
-                  {t('socials')}
-                </span>
-                <div className="flex space-x-4">
-                  {[
-                    { icon: <Linkedin size={18} />, url: '#', label: 'LinkedIn' },
-                    { icon: <Instagram size={18} />, url: '#', label: 'Instagram' },
-                    { icon: <Twitter size={18} />, url: '#', label: 'Twitter' }
-                  ].map((soc, i) => (
-                    <a
-                      key={i}
-                      href={soc.url}
-                      aria-label={soc.label}
-                      className="w-10 h-10 rounded-full border border-stone-200 bg-white flex items-center justify-center text-stone-600 hover:bg-stone-900 hover:text-stone-50 hover:border-stone-900 transition-all duration-300 shadow-sm hover:scale-105"
-                    >
-                      {soc.icon}
-                    </a>
-                  ))}
+              {/* Social links — only those configured in config/site.ts are rendered */}
+              {SOCIALS.length > 0 && (
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-stone-400 uppercase tracking-widest block mb-4">
+                    {t('socials')}
+                  </span>
+                  <div className="flex flex-wrap gap-3">
+                    {SOCIALS.map((social) => (
+                      <a
+                        key={social.id}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 h-10 rounded-full border border-stone-200 bg-white flex items-center justify-center gap-1.5 text-xs font-bold uppercase tracking-wider text-stone-600 hover:bg-stone-900 hover:text-stone-50 hover:border-stone-900 transition-all duration-300 shadow-sm hover:scale-105"
+                      >
+                        {social.label}
+                        <ArrowUpRight size={12} />
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -233,7 +243,18 @@ const Contact: React.FC = () => {
                 
                 {status === 'error' && (
                   <p className="mt-3 text-xs text-red-500 font-mono">
-                    Please try again later or email directly to devpunjabi203@gmail.com.
+                    {language === 'en'
+                      ? 'Please try again later, or email '
+                      : 'Bitte später erneut versuchen oder direkt schreiben an '}
+                    <a href={`mailto:${SITE.email}`} className="underline">{SITE.email}</a>.
+                  </p>
+                )}
+
+                {!EMAILJS_CONFIGURED && (
+                  <p className="mt-3 text-xs text-stone-400 font-light">
+                    {language === 'en'
+                      ? 'This opens a pre-filled message in your own email app.'
+                      : 'Dies öffnet eine vorausgefüllte Nachricht in Ihrem E-Mail-Programm.'}
                   </p>
                 )}
               </div>
@@ -242,66 +263,6 @@ const Contact: React.FC = () => {
         </div>
       </div>
 
-      {/* Styled EmailJS configuration help modal overlay (replaces standard browser alerts) */}
-      {showConfigModal && (
-        <div className="fixed inset-0 z-50 bg-stone-900/40 backdrop-blur-md flex items-center justify-center p-6 animate-fade-in">
-          <div className="bg-white max-w-md w-full p-8 rounded-3xl border border-stone-200 shadow-2xl relative animate-slide-up">
-            <button 
-              onClick={() => setShowConfigModal(false)}
-              className="absolute top-5 right-5 p-1.5 rounded-full hover:bg-stone-100 text-stone-400 hover:text-stone-800 transition-colors cursor-pointer"
-            >
-              <X size={16} />
-            </button>
-
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-10 h-10 rounded-full bg-stone-900 text-white flex items-center justify-center">
-                <Info size={18} />
-              </span>
-              <div>
-                <h3 className="text-xl font-serif text-stone-900">EmailJS Integration</h3>
-                <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider">Setup Required</span>
-              </div>
-            </div>
-
-            <p className="text-stone-600 text-sm leading-relaxed mb-6 font-light">
-              This form uses <strong>EmailJS</strong> for client-side static static email delivery. To receive messages, replace the credential placeholders inside <code>Contact.tsx</code> (lines 30-32):
-            </p>
-
-            <div className="space-y-3 mb-6">
-              <div className="bg-stone-50 p-3 rounded-xl border border-stone-100 font-mono text-[11px] text-stone-500">
-                <span className="text-stone-800 block font-bold">1. SERVICE_ID</span>
-                Your email provider service identifier.
-              </div>
-              <div className="bg-stone-50 p-3 rounded-xl border border-stone-100 font-mono text-[11px] text-stone-500">
-                <span className="text-stone-800 block font-bold">2. TEMPLATE_ID</span>
-                Your custom email format template.
-              </div>
-              <div className="bg-stone-50 p-3 rounded-xl border border-stone-100 font-mono text-[11px] text-stone-500">
-                <span className="text-stone-800 block font-bold">3. PUBLIC_KEY</span>
-                Your account dashboard public API key.
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <a 
-                href="https://dashboard.emailjs.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center justify-center gap-1.5 font-bold text-xs uppercase tracking-widest text-center bg-stone-900 text-white py-3.5 rounded-full hover:bg-stone-800 transition-colors shadow-md"
-              >
-                Register on EmailJS
-                <ArrowUpRight size={12} />
-              </a>
-              <button 
-                onClick={() => setShowConfigModal(false)}
-                className="font-bold text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 text-center py-3.5 cursor-pointer"
-              >
-                Dismiss Prompt
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

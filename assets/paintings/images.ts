@@ -1,6 +1,5 @@
-import Portrait from './18932.JPEG';
-import Study from './34879.JPEG';
+import { img } from '../image';
 
-export const HERO = Portrait;     // Detailed graphite portrait (also page hero)
-export const PORTRAIT = Portrait; // Adorned — finished graphite portrait
-export const STUDY = Study;       // Minimalist pencil face study
+export const HERO = img('paintings/18932.JPEG');     // Detailed graphite portrait (also page hero)
+export const PORTRAIT = img('paintings/18932.JPEG'); // Adorned — finished graphite portrait
+export const STUDY = img('paintings/34879.JPEG');    // Minimalist pencil face study

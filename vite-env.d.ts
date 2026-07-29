@@ -1,17 +1,14 @@
 /// <reference types="vite/client" />
 
-// Uppercase image extensions (vite/client only declares lowercase ones)
-declare module '*.PNG' {
-  const src: string;
-  export default src;
+// Photos are no longer imported directly — scripts/optimize-images.mjs turns them
+// into responsive derivatives under public/img and a typed manifest.
+
+interface ImportMetaEnv {
+  readonly VITE_EMAILJS_SERVICE_ID?: string;
+  readonly VITE_EMAILJS_TEMPLATE_ID?: string;
+  readonly VITE_EMAILJS_PUBLIC_KEY?: string;
 }
 
-declare module '*.JPEG' {
-  const src: string;
-  export default src;
-}
-
-declare module '*.JPG' {
-  const src: string;
-  export default src;
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }

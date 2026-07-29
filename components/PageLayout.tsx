@@ -4,13 +4,21 @@ import { PageData } from '../types';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Reveal from './Reveal';
+import Img from './Img';
+import { useIsDesktop } from '../hooks/useMediaQuery';
 
 interface Props {
   data?: PageData;
 }
 
+/** Width of the sticky exhibition frame, which sits in a ~38% column on desktop. */
+const FRAME_SIZES = '(min-width: 1024px) 40vw, 100vw';
+/** The mobile-only images run edge to edge inside the page gutter. */
+const MOBILE_SIZES = '(min-width: 640px) 90vw, 100vw';
+
 const PageLayout: React.FC<Props> = ({ data }) => {
   const { t, navigation, language } = useLanguage();
+  const isDesktop = useIsDesktop();
   const [activeImageId, setActiveImageId] = useState('hero');
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -77,8 +85,13 @@ const PageLayout: React.FC<Props> = ({ data }) => {
     ...data.gallery.map(item => ({ id: item.id, imageUrl: item.imageUrl, title: item.title }))
   ];
 
-  const activeIndex = allImages.findIndex(img => img.id === activeImageId);
+  const activeIndex = allImages.findIndex(image => image.id === activeImageId);
   const activeImage = activeIndex !== -1 ? allImages[activeIndex] : allImages[0];
+
+  // Mount only the active frame and its immediate neighbours. The neighbours keep
+  // the cross-fade smooth in both scroll directions while avoiding the old
+  // behaviour of requesting every gallery image the moment the page opened.
+  const framedImages = allImages.filter((_, index) => Math.abs(index - activeIndex) <= 1);
 
   // Dynamic theme border colors for ambient touch
   const getThemeColorClass = () => {
@@ -113,16 +126,19 @@ const PageLayout: React.FC<Props> = ({ data }) => {
       {/* Split Interactive Exhibition Layout */}
       <div className="flex flex-col lg:flex-row max-w-[95rem] mx-auto">
 
-        {/* LEFT COLUMN: Sticky Exhibition Frame (Desktop) */}
-        <div className="hidden lg:flex w-[38%] h-screen sticky top-0 p-8 xl:p-12 z-10 flex-col justify-center animate-scale-in animate-delay-200">
+        {/* LEFT COLUMN: Sticky Exhibition Frame (Desktop only — mounted, not just shown) */}
+        {isDesktop && (
+        <div className="flex w-[38%] h-screen sticky top-0 p-8 xl:p-12 z-10 flex-col justify-center animate-scale-in animate-delay-200">
           <div className={`w-full h-[65vh] rounded-[2.5rem] overflow-hidden shadow-2xl relative border ${getThemeColorClass()} bg-stone-100 group`}>
-            {allImages.map((img) => (
-              <img
-                key={img.id}
-                src={img.imageUrl}
-                alt={img.title}
+            {framedImages.map((image) => (
+              <Img
+                key={image.id}
+                image={image.imageUrl}
+                alt={image.title}
+                sizes={FRAME_SIZES}
+                priority={image.id === 'hero'}
                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-                  activeImageId === img.id
+                  activeImageId === image.id
                     ? 'opacity-100 scale-100 blur-none animate-kenburns'
                     : 'opacity-0 scale-110 blur-md'
                 }`}
@@ -149,11 +165,11 @@ const PageLayout: React.FC<Props> = ({ data }) => {
 
           {/* Chapter progress dots */}
           <div className="flex items-center justify-center gap-2 mt-6">
-            {allImages.map((img) => (
+            {allImages.map((image) => (
               <span
-                key={img.id}
+                key={image.id}
                 className={`rounded-full transition-all duration-500 ${
-                  activeImageId === img.id
+                  activeImageId === image.id
                     ? 'w-6 h-1.5 bg-stone-800'
                     : 'w-1.5 h-1.5 bg-stone-300'
                 }`}
@@ -161,6 +177,7 @@ const PageLayout: React.FC<Props> = ({ data }) => {
             ))}
           </div>
         </div>
+        )}
 
         {/* RIGHT COLUMN: Scrollytelling Guide Panel */}
         <div className="w-full lg:w-[62%] flex flex-col px-6 md:px-12 lg:pl-16 lg:pr-20 pb-32">
@@ -170,10 +187,12 @@ const PageLayout: React.FC<Props> = ({ data }) => {
             className="min-h-[50vh] lg:min-h-[70vh] flex flex-col justify-center py-16"
             onMouseEnter={() => setActiveImageId('hero')}
           >
-            {/* Mobile Hero Image */}
-            <Reveal variant="img-curtain" className="lg:hidden w-full aspect-[4/3] rounded-3xl mb-8 shadow-xl border border-stone-200/50 bg-stone-100">
-              <img src={data.heroImage} alt={data.title} className="w-full h-full object-cover" />
-            </Reveal>
+            {/* Mobile Hero Image — replaced by the sticky frame on desktop */}
+            {!isDesktop && (
+              <Reveal variant="img-curtain" className="w-full aspect-[4/3] rounded-3xl mb-8 shadow-xl border border-stone-200/50 bg-stone-100">
+                <Img image={data.heroImage} alt={data.title} sizes={MOBILE_SIZES} priority className="w-full h-full object-cover" />
+              </Reveal>
+            )}
 
             <Reveal variant="blur-up">
               <p className="text-2xl md:text-3xl font-serif font-light leading-relaxed text-stone-800">
@@ -192,10 +211,12 @@ const PageLayout: React.FC<Props> = ({ data }) => {
                 className="min-h-[45vh] lg:min-h-[75vh] flex flex-col justify-center py-8"
                 onMouseEnter={() => setActiveImageId(item.id)}
               >
-                {/* Mobile Gallery Image */}
-                <Reveal variant="img-curtain" className="lg:hidden w-full aspect-[4/3] rounded-3xl mb-8 shadow-lg border border-stone-200/50 bg-stone-100">
-                  <img src={item.imageUrl} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
-                </Reveal>
+                {/* Mobile Gallery Image — replaced by the sticky frame on desktop */}
+                {!isDesktop && (
+                  <Reveal variant="img-curtain" className="w-full aspect-[4/3] rounded-3xl mb-8 shadow-lg border border-stone-200/50 bg-stone-100">
+                    <Img image={item.imageUrl} alt={item.title} sizes={MOBILE_SIZES} className="w-full h-full object-cover" />
+                  </Reveal>
+                )}
 
                 <Reveal variant="fade-up">
                   <div className="flex flex-col gap-6">

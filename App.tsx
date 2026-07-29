@@ -1,14 +1,18 @@
 
-import React, { useEffect } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import PageLayout from './components/PageLayout';
-import Contact from './components/Contact';
-import Arts from './components/Arts';
-import Career from './components/Career';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import { SOCIALS } from './config/site';
+
+// Home and PageLayout are in the entry bundle because they cover the landing page
+// and four of the routes. The two heavier one-off screens load on demand.
+const Arts = lazy(() => import('./components/Arts'));
+const Career = lazy(() => import('./components/Career'));
+const Contact = lazy(() => import('./components/Contact'));
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -32,6 +36,7 @@ const AppRoutes = () => {
   return (
     // Keying on pathname replays the enter animation on every route change
     <div key={pathname} className="page-enter">
+      <Suspense fallback={<div className="min-h-screen" aria-busy="true" />}>
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -47,6 +52,7 @@ const AppRoutes = () => {
         {/* Fallback */}
         <Route path="*" element={<Home />} />
       </Routes>
+      </Suspense>
     </div>
   );
 };
@@ -89,11 +95,22 @@ const Footer = () => {
             ))}
           </nav>
 
-          <div className="flex space-x-6">
-            <a href="#" className="text-stone-500 hover:text-white transition-colors duration-300 text-sm">Twitter</a>
-            <a href="#" className="text-stone-500 hover:text-white transition-colors duration-300 text-sm">LinkedIn</a>
-            <a href="#" className="text-stone-500 hover:text-white transition-colors duration-300 text-sm">Instagram</a>
-          </div>
+          {/* Only links actually configured in config/site.ts are rendered */}
+          {SOCIALS.length > 0 && (
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {SOCIALS.map((social) => (
+                <a
+                  key={social.id}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-stone-500 hover:text-white transition-colors duration-300 text-sm"
+                >
+                  {social.label}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Bottom bar */}

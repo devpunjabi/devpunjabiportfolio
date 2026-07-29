@@ -1,5 +1,4 @@
-import Research from '../personal-bio/IMG_6816.png';
-import Cosmos from './IMG_5268.png';
+import { img } from '../image';
 
-export const DECORATIVE_1 = Research; // Presenting research at KIT — science in action
-export const DECORATIVE_2 = Cosmos;   // Gazing up at framed astronomy prints — the focal portrait
+export const DECORATIVE_1 = img('personal-bio/IMG_6816.png'); // Presenting research at KIT — science in action
+export const DECORATIVE_2 = img('home/IMG_5268.png');         // Gazing up at framed astronomy prints — the focal portrait

@@ -1,9 +1,6 @@
-import Research from '../personal-bio/IMG_6816.png';
-import Coding from './IMG_4570.png';
-import Collaboration from './IMG_2510.png';
-import Tinkering from '../personal-bio/IMG_4201.png';
+import { img } from '../image';
 
-export const HERO = Research;               // Presenting research at KIT (page hero)
-export const ARCHITECT = Coding;            // Deep work — architecting over coffee
-export const COLLABORATION = Collaboration; // In a working meeting with the team
-export const ENGINEERING = Tinkering;       // Raspberry Pi 5 build — hands-on engineering
+export const HERO = img('personal-bio/IMG_6816.png');        // Presenting research at KIT (page hero)
+export const ARCHITECT = img('career-bio/IMG_4570.png');     // Deep work — architecting over coffee
+export const COLLABORATION = img('career-bio/IMG_2510.png'); // In a working meeting with the team
+export const ENGINEERING = img('personal-bio/IMG_4201.png'); // Raspberry Pi 5 build — hands-on engineering

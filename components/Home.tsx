@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import * as HomeImages from '../assets/home/images';
 import { useLanguage } from '../contexts/LanguageContext';
+import Img from './Img';
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
@@ -52,12 +53,24 @@ const Home: React.FC = () => {
           <div
             className="absolute top-10 right-0 w-64 h-80 bg-stone-200 rounded-lg overflow-hidden shadow-2xl"
           >
-            <img src={HomeImages.DECORATIVE_1} className="w-full h-full object-cover opacity-90" alt="Decorative" />
+            <Img
+              image={HomeImages.DECORATIVE_1}
+              alt="Dev Punjabi presenting research at KIT"
+              sizes="256px"
+              className="w-full h-full object-cover opacity-90"
+            />
           </div>
           <div
             className="absolute top-1/3 left-10 w-72 h-96 bg-stone-300 rounded-lg overflow-hidden shadow-2xl z-10"
           >
-            <img src={HomeImages.DECORATIVE_2} className="w-full h-full object-cover opacity-90" alt="Decorative" />
+            {/* Front-most and largest of the pair — the likely LCP element on desktop. */}
+            <Img
+              image={HomeImages.DECORATIVE_2}
+              alt="Dev Punjabi looking up at a wall of framed astronomy prints"
+              sizes="288px"
+              priority
+              className="w-full h-full object-cover opacity-90"
+            />
           </div>
         </div>
       </div>
