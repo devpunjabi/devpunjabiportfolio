@@ -2,12 +2,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import * as HomeImages from '../assets/home/images';
+import { HOME_PHOTOS, homeText } from '../content/home';
 import { useLanguage } from '../contexts/LanguageContext';
 import Img from './Img';
 
 const Home: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const copy = homeText(language);
+  const [mountains, astronomy] = HOME_PHOTOS;
 
   return (
     <div className="relative min-h-screen flex items-center bg-[#fafaf9] overflow-hidden">
@@ -26,15 +28,15 @@ const Home: React.FC = () => {
 
         <div className="lg:col-span-7 pt-20 lg:pt-0">
           <div>
-            <h2 className="text-stone-500 font-medium tracking-[0.2em] text-sm mb-8 pl-1">{t('portfolioTitle')}</h2>
+            <h2 className="text-stone-500 font-medium tracking-[0.2em] text-sm mb-8 pl-1">{copy.eyebrow}</h2>
 
             <h1 className="text-7xl md:text-8xl lg:text-[10rem] font-serif font-light text-stone-900 leading-[0.9] -ml-1 mb-10 tracking-tighter">
-              {t('heroTitleLine1')} <br />
-              <span className="italic text-stone-400">{t('heroTitleLine2')}</span>
+              {copy.headlineLine1} <br />
+              <span className="italic text-stone-400">{copy.headlineLine2}</span>
             </h1>
 
             <p className="text-stone-600 text-xl md:text-2xl max-w-lg font-light leading-relaxed mb-12">
-              {t('heroDescription')}
+              {copy.description}
             </p>
 
             <div className="flex flex-wrap items-center gap-8">
@@ -42,7 +44,7 @@ const Home: React.FC = () => {
                 <span className="w-12 h-12 rounded-full border border-stone-300 flex items-center justify-center group-hover:bg-stone-900 group-hover:border-stone-900 transition-all duration-300">
                   <ArrowRight className="text-stone-400 group-hover:text-white transition-colors" size={20} />
                 </span>
-                <span className="text-lg font-medium text-stone-800 group-hover:text-stone-900">{t('beginJourney')}</span>
+                <span className="text-lg font-medium text-stone-800 group-hover:text-stone-900">{copy.cta}</span>
               </Link>
             </div>
           </div>
@@ -54,8 +56,8 @@ const Home: React.FC = () => {
             className="absolute top-10 right-0 w-64 h-80 bg-stone-200 rounded-lg overflow-hidden shadow-2xl"
           >
             <Img
-              image={HomeImages.DECORATIVE_1}
-              alt="Dev Punjabi presenting research at KIT"
+              image={mountains.image}
+              alt={mountains[language]}
               sizes="256px"
               className="w-full h-full object-cover opacity-90"
             />
@@ -65,8 +67,8 @@ const Home: React.FC = () => {
           >
             {/* Front-most and largest of the pair — the likely LCP element on desktop. */}
             <Img
-              image={HomeImages.DECORATIVE_2}
-              alt="Dev Punjabi looking up at a wall of framed astronomy prints"
+              image={astronomy.image}
+              alt={astronomy[language]}
               sizes="288px"
               priority
               className="w-full h-full object-cover opacity-90"

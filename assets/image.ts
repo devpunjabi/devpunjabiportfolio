@@ -40,7 +40,7 @@ const cache = new Map<string, ImageAsset>();
 
 /**
  * Look up an optimized image by its path relative to assets/,
- * e.g. `img('personal-bio/IMG_1955.png')`.
+ * e.g. `img('personal-bio/IMG_4555.png')`.
  */
 export function img(key: string): ImageAsset {
   const cached = cache.get(key);

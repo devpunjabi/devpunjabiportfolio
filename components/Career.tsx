@@ -228,6 +228,32 @@ const Career: React.FC = () => {
                         </p>
                       )}
 
+                      {/* Named projects worked on in this role */}
+                      {item.projects && item.projects.length > 0 && (
+                        <div className="mt-5 pt-5 border-t border-stone-100">
+                          <h4 className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-stone-400 mb-4">
+                            {t('projects')}
+                          </h4>
+                          <ul className="space-y-3">
+                            {item.projects.map((project) => (
+                              <li key={project.name} className="relative pl-4">
+                                <span className={`absolute left-0 top-[0.6rem] w-1.5 h-1.5 rounded-full transition-colors duration-500 ${
+                                  isActive ? 'bg-stone-900' : 'bg-stone-300'
+                                }`} />
+                                <span className="block text-sm md:text-base font-medium text-stone-800 leading-snug">
+                                  {project.name}
+                                </span>
+                                {project.description && (
+                                  <span className="block text-sm text-stone-500 font-light leading-relaxed mt-0.5">
+                                    {project.description}
+                                  </span>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
                       {/* Technology Tag Chips */}
                       {item.tags && item.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-stone-100">

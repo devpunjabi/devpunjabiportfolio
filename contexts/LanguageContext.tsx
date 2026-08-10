@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { PageData, NavItem } from '../types';
-import { PAGES_DATA_EN, PAGES_DATA_DE, NAVIGATION_EN, NAVIGATION_DE, UI_TEXT } from '../constants';
+import { PAGES_DATA_EN, PAGES_DATA_DE, NAVIGATION_EN, NAVIGATION_DE, UI_TEXT } from '../content';
 
 type Language = 'en' | 'de';
 

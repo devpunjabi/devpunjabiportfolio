@@ -1,5 +1,11 @@
 import { ImageAsset } from './assets/image';
 
+/** A named piece of work listed inside a role — only the career page renders these. */
+export interface RoleProject {
+  name: string;
+  description?: string;
+}
+
 export interface GalleryItem {
   id: string;
   imageUrl: ImageAsset;
@@ -8,6 +14,7 @@ export interface GalleryItem {
   span?: boolean; // If true, takes up 2 columns in grid
   tags?: string[]; // Optional tech stack tags
   subtitle?: string; // Optional subtitle (like dates)
+  projects?: RoleProject[]; // Optional project list under a role
 }
 
 export interface PageData {

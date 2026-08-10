@@ -44,6 +44,14 @@ export const MANIFEST: Record<string, RawImage> = {
     "height": 4032,
     "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJbACdAA+ZO62g571dL4AA3LEHxUq9e9EDi0zNVVqhF1ktPY+X3CWS/5hyiWB7GJL5ejyJiamTorp8UG4itaKuWEJDrBVHRb5QY3TqkLSAAA=="
   },
+  "career-bio/IMG_5903.jpg": {
+    "src": "img/career-bio/IMG_5903-09390753-1178.jpg",
+    "avif": "img/career-bio/IMG_5903-09390753-640.avif 640w",
+    "webp": "img/career-bio/IMG_5903-09390753-640.webp 640w",
+    "width": 1178,
+    "height": 2003,
+    "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoQABsAPzmOvlOvKqcisAgB4CcJZQCdAGol7jGqeZX8LkZT4AAA/h2Azyfa1M2tOvsUHd9pAQR1YvY1NsFV1LFU4866ZMjLh2iRIVnAaljCzrotPnZPnst+VPPc1tdheY2dAAAA"
+  },
   "digital-3d/IMG_3831.png": {
     "src": "img/digital-3d/IMG_3831-b5438a02-1280.jpg",
     "avif": "img/digital-3d/IMG_3831-b5438a02-640.avif 640w, img/digital-3d/IMG_3831-b5438a02-1280.avif 1280w, img/digital-3d/IMG_3831-b5438a02-1920.avif 1920w",
@@ -75,6 +83,30 @@ export const MANIFEST: Record<string, RawImage> = {
     "width": 3024,
     "height": 4032,
     "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACwAwCdASoQABUAPzmIuVQvKSWjMAgB4CcJZwAAW+k0QwZo0dIlgAD9yiDOpk/j0MoFMmP//MdkwUAZPZpQGNySscnJY8oyuNsHVY0GWUtAc7eTUNtuLLgAAAA="
+  },
+  "digital-3d/deity-sculpt.png": {
+    "src": "img/digital-3d/deity-sculpt-e7967c63-1179.jpg",
+    "avif": "img/digital-3d/deity-sculpt-e7967c63-640.avif 640w",
+    "webp": "img/digital-3d/deity-sculpt-e7967c63-640.webp 640w",
+    "width": 1179,
+    "height": 2072,
+    "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBACdASoQABwAPzmGuVOvKSWisAgB4CcJZQAAWkdo9sTm/5fB/T6ZYwAA/stbxd+hkHkrgLGhJAQigZlF8BBDN6iqftU9q4bj1JdHDgpTAx8SNynYrcg9idAGkp1JBA/gf+RuRlZGs2nwr5oJmN7vfAA="
+  },
+  "digital-3d/gold-plume.png": {
+    "src": "img/digital-3d/gold-plume-ab7a7489-1179.jpg",
+    "avif": "img/digital-3d/gold-plume-ab7a7489-640.avif 640w",
+    "webp": "img/digital-3d/gold-plume-ab7a7489-640.webp 640w",
+    "width": 1179,
+    "height": 2050,
+    "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAwBACdASoQABwAPzmEuVOvKKWisAgB4CcJbAAD5Sn1Mdt+l2z0urKUNpgA/XW3BrMobKcJPPHh9xbGR21zue6uQl4Q3iQ/qwbTzMkS6GxFYXHwX5nZSYPffDQDB54+UazyLMdhHZ0jQXR0h+3/KAtsQb4o4ts2kZ3ofmKNgZMYEdVSn3rheFt5oHQkSSOkHaXMVB/mRf9Nd15YpJEQwAAA"
+  },
+  "digital-3d/mace-detail.png": {
+    "src": "img/digital-3d/mace-detail-33854b41-1179.jpg",
+    "avif": "img/digital-3d/mace-detail-33854b41-640.avif 640w",
+    "webp": "img/digital-3d/mace-detail-33854b41-640.webp 640w",
+    "width": 1179,
+    "height": 2070,
+    "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQBACdASoQABwAPzmEuVOvKKWisAgB4CcJbACdACP+xJUhP+M3kGHnjtWQAPRYtXUZLJdc7IuNxJGMVjbYUQHBnTdI3c3N5n4zeoZV1wiMqooQ/k39rYIuEAHeOpFKnXElvE8rbwktliSeYLnXaXFcmXxgB8AA"
   },
   "digital-3d/throne.jpeg": {
     "src": "img/digital-3d/throne-16873789-1280.jpg",
@@ -140,30 +172,6 @@ export const MANIFEST: Record<string, RawImage> = {
     "height": 2775,
     "lqip": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQABAABUB8JZwAAtz/WKXAAP7nOGXZJz39jFyUcDBIj7kBsIAAAA=="
   },
-  "personal-bio/IMG_1782.png": {
-    "src": "img/personal-bio/IMG_1782-0193dd7e-1280.jpg",
-    "avif": "img/personal-bio/IMG_1782-0193dd7e-640.avif 640w, img/personal-bio/IMG_1782-0193dd7e-1280.avif 1280w, img/personal-bio/IMG_1782-0193dd7e-1920.avif 1920w",
-    "webp": "img/personal-bio/IMG_1782-0193dd7e-640.webp 640w, img/personal-bio/IMG_1782-0193dd7e-1280.webp 1280w, img/personal-bio/IMG_1782-0193dd7e-1920.webp 1920w",
-    "width": 3024,
-    "height": 4032,
-    "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJbAAAIbxLtnxBJoiJAAD54hyeI9h9sFrz1IX22wl4NYWLFhXjW8HaZRL+CBFfwa5bj/0HSZbcsYDGkYvIuqYxsFrZ8GhvPAG8KpES7Qp3cgNDyAAAAA=="
-  },
-  "personal-bio/IMG_1867.png": {
-    "src": "img/personal-bio/IMG_1867-7d39cc52-1280.jpg",
-    "avif": "img/personal-bio/IMG_1867-7d39cc52-640.avif 640w, img/personal-bio/IMG_1867-7d39cc52-1280.avif 1280w, img/personal-bio/IMG_1867-7d39cc52-1920.avif 1920w",
-    "webp": "img/personal-bio/IMG_1867-7d39cc52-640.webp 640w, img/personal-bio/IMG_1867-7d39cc52-1280.webp 1280w, img/personal-bio/IMG_1867-7d39cc52-1920.webp 1920w",
-    "width": 3024,
-    "height": 4032,
-    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZAAASinUgXVhD4AA+aoRJOHi3iCtOMM/XLMjlCD+DKEtLN+9yJkUNLRcU78rIAA="
-  },
-  "personal-bio/IMG_1955.png": {
-    "src": "img/personal-bio/IMG_1955-a0864cbe-1280.jpg",
-    "avif": "img/personal-bio/IMG_1955-a0864cbe-640.avif 640w, img/personal-bio/IMG_1955-a0864cbe-1280.avif 1280w, img/personal-bio/IMG_1955-a0864cbe-1920.avif 1920w",
-    "webp": "img/personal-bio/IMG_1955-a0864cbe-640.webp 640w, img/personal-bio/IMG_1955-a0864cbe-1280.webp 1280w, img/personal-bio/IMG_1955-a0864cbe-1920.webp 1920w",
-    "width": 3024,
-    "height": 4032,
-    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZAC7AFFbeoNIZEAAdE8zuhpsab+kBPkdhBPgu5f4d3NtKGck5dpYbVbm0zzI0AAxoAAA"
-  },
   "personal-bio/IMG_2206.png": {
     "src": "img/personal-bio/IMG_2206-572cf054-1280.jpg",
     "avif": "img/personal-bio/IMG_2206-572cf054-640.avif 640w, img/personal-bio/IMG_2206-572cf054-1280.avif 1280w, img/personal-bio/IMG_2206-572cf054-1920.avif 1920w",
@@ -171,6 +179,22 @@ export const MANIFEST: Record<string, RawImage> = {
     "width": 3024,
     "height": 4032,
     "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJQAAHtBY12ZtEwIAA/lYDEbWxPQndOYyJMxF7qttA0iqPwTRh9+yyvbj7WCFvai+8i/9Qk2+WF6HZ4AA="
+  },
+  "personal-bio/IMG_3784.png": {
+    "src": "img/personal-bio/IMG_3784-aca950dd-1280.jpg",
+    "avif": "img/personal-bio/IMG_3784-aca950dd-640.avif 640w, img/personal-bio/IMG_3784-aca950dd-1280.avif 1280w, img/personal-bio/IMG_3784-aca950dd-1920.avif 1920w",
+    "webp": "img/personal-bio/IMG_3784-aca950dd-640.webp 640w, img/personal-bio/IMG_3784-aca950dd-1280.webp 1280w, img/personal-bio/IMG_3784-aca950dd-1920.webp 1920w",
+    "width": 3024,
+    "height": 4032,
+    "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJagC06BQfvNw7ixn3kADKkeJvolH0uavnzxyl5OQlSCXaItX0MxoWYEw+FQrkyZ4gjFL19tAXDGdMWFVVc7uiBmxY2LhI+nQZkzkgUpptj8xrlAyhUUHOHO9/93PXIskYAA=="
+  },
+  "personal-bio/IMG_3866.png": {
+    "src": "img/personal-bio/IMG_3866-dda41241-1280.jpg",
+    "avif": "img/personal-bio/IMG_3866-dda41241-640.avif 640w, img/personal-bio/IMG_3866-dda41241-1280.avif 1280w, img/personal-bio/IMG_3866-dda41241-1920.avif 1920w",
+    "webp": "img/personal-bio/IMG_3866-dda41241-640.webp 640w, img/personal-bio/IMG_3866-dda41241-1280.webp 1280w, img/personal-bio/IMG_3866-dda41241-1920.webp 1920w",
+    "width": 2316,
+    "height": 3088,
+    "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACwAwCdASoQABUAPzmGuVQvKSWjMAgB4CcJQBOgAwg2gtU+MJEtAAD+kJD2LsRvNhgmpxWIWRYZh2tAQD3VeXAwJcizByR0cJQvFc3Q+Nnhy6lT8OJk2XSfbgoxegQ/r40MmPNf80Vgbk7jX4CjEI7VZ5zsXLrdSRYfbmF+W/cq0gxQAAA="
   },
   "personal-bio/IMG_4201.png": {
     "src": "img/personal-bio/IMG_4201-cca27e1c-1280.jpg",
@@ -188,29 +212,21 @@ export const MANIFEST: Record<string, RawImage> = {
     "height": 3800,
     "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAwCdASoQABUALvmczmclLy8vDwD4S2AE6ZQWoAE2/OOTPPvzEAD+693IRyc0C+sDpVaW6pr0WHRHl1h79fwPltf/Qt5rKxA+cadFV8Q1MXcW64X7RHw3gYuHF7ltNHzUTgAA"
   },
-  "personal-bio/IMG_4718.png": {
-    "src": "img/personal-bio/IMG_4718-47f9b700-1280.jpg",
-    "avif": "img/personal-bio/IMG_4718-47f9b700-640.avif 640w, img/personal-bio/IMG_4718-47f9b700-1280.avif 1280w, img/personal-bio/IMG_4718-47f9b700-1920.avif 1920w",
-    "webp": "img/personal-bio/IMG_4718-47f9b700-640.webp 640w, img/personal-bio/IMG_4718-47f9b700-1280.webp 1280w, img/personal-bio/IMG_4718-47f9b700-1920.webp 1920w",
-    "width": 2824,
-    "height": 3855,
-    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABQBACdASoQABYAPzmEuVOvKKWisAgB4CcJYwC06CKUmXn3zW2C/4z1eXBAAPlWFJt7nX+M3v4jKRn5G9eIlzm30BgwWJjOx/ElunVT8BturAnZ3Sao3IbQnFwPx6ik/nWL03rYMfqIAA=="
+  "personal-bio/IMG_5720.png": {
+    "src": "img/personal-bio/IMG_5720-c6734e39-1280.jpg",
+    "avif": "img/personal-bio/IMG_5720-c6734e39-640.avif 640w, img/personal-bio/IMG_5720-c6734e39-1280.avif 1280w, img/personal-bio/IMG_5720-c6734e39-1920.avif 1920w",
+    "webp": "img/personal-bio/IMG_5720-c6734e39-640.webp 640w, img/personal-bio/IMG_5720-c6734e39-1280.webp 1280w, img/personal-bio/IMG_5720-c6734e39-1920.webp 1920w",
+    "width": 3022,
+    "height": 3184,
+    "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQBACdASoQABEAPzmEuVOvKKWisAgB4CcJbACdMoFWAAJOJiGnYcA0VgD+j08YvnQ8y6vWmG4m9OfjO3C43SMln3pVMxK2y0GtyDGq0hsP0IVt480q5+Ntzp+SvYJ9QG67BRAA3LDRA6EoauYlYYoAAAA="
   },
-  "personal-bio/IMG_6816.png": {
-    "src": "img/personal-bio/IMG_6816-8e66c872-1280.jpg",
-    "avif": "img/personal-bio/IMG_6816-8e66c872-640.avif 640w, img/personal-bio/IMG_6816-8e66c872-1280.avif 1280w, img/personal-bio/IMG_6816-8e66c872-1920.avif 1920w",
-    "webp": "img/personal-bio/IMG_6816-8e66c872-640.webp 640w, img/personal-bio/IMG_6816-8e66c872-1280.webp 1280w, img/personal-bio/IMG_6816-8e66c872-1920.webp 1920w",
-    "width": 3024,
-    "height": 4032,
-    "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZACdMoAB/htj2lhzULAAAP5YfowPSP2O/jrNJJTzfxS68wBrafJCl8N4WVWsIeVEKDrP1SmpRqp6PdM9cGyUg0JcYr/UX60Lwfrc7bfTysAA"
-  },
-  "personal-bio/IMG_9956.png": {
-    "src": "img/personal-bio/IMG_9956-760f3605-1280.jpg",
-    "avif": "img/personal-bio/IMG_9956-760f3605-640.avif 640w, img/personal-bio/IMG_9956-760f3605-1280.avif 1280w, img/personal-bio/IMG_9956-760f3605-1920.avif 1920w",
-    "webp": "img/personal-bio/IMG_9956-760f3605-640.webp 640w, img/personal-bio/IMG_9956-760f3605-1280.webp 1280w, img/personal-bio/IMG_9956-760f3605-1920.webp 1920w",
-    "width": 3024,
-    "height": 4032,
-    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZACsABShbRd59oVr6AAA3VJ9Y6wzLqUuXybS6qtoRLjsBHpVejkxL/pxBXal3FcpSRkOYxd3sLu11EYAAA=="
+  "personal-bio/IMG_5902.jpg": {
+    "src": "img/personal-bio/IMG_5902-a4912abb-1179.jpg",
+    "avif": "img/personal-bio/IMG_5902-a4912abb-640.avif 640w",
+    "webp": "img/personal-bio/IMG_5902-a4912abb-640.webp 640w",
+    "width": 1179,
+    "height": 1951,
+    "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoQABoAPzmKu1SvKaYjMAgB4CcJZQABHu7SJEqN+jqjjQAA/u2oaydtv4dewssdhd8COom+dCEouPmBndx61IzZoW/9bZvja0l1aih9N5HiP6zCntSoU2QrJ08oUKXT/t4dAAAA"
   },
   "sculptures/1000000202.JPEG": {
     "src": "img/sculptures/1000000202-cf3f25f9-1080.jpg",
@@ -276,6 +292,14 @@ export const MANIFEST: Record<string, RawImage> = {
     "height": 3024,
     "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACQAQCdASoQABAABUB8JYwCdAEOBAAA/lE2l46uQBXWn4rpsFj1snBTPltZflhT1CvZmAAA"
   },
+  "sculptures/IMG_5659.png": {
+    "src": "img/sculptures/IMG_5659-85f6a6a6-1280.jpg",
+    "avif": "img/sculptures/IMG_5659-85f6a6a6-640.avif 640w, img/sculptures/IMG_5659-85f6a6a6-1280.avif 1280w, img/sculptures/IMG_5659-85f6a6a6-1920.avif 1920w",
+    "webp": "img/sculptures/IMG_5659-85f6a6a6-640.webp 640w, img/sculptures/IMG_5659-85f6a6a6-1280.webp 1280w, img/sculptures/IMG_5659-85f6a6a6-1920.webp 1920w",
+    "width": 3024,
+    "height": 4032,
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZAC7ACHDHv3C716stAD8bFoAPPymVXJjJyUh7OBRNRuxP/NMERff32iy1GXFtfzfLWWt2wda8NSgid1x/+Dzi+R5btuLEhIpLoYVBXzAfZYqbqwMpMphjOW2AA=="
+  },
   "sculptures/IMG_6361.png": {
     "src": "img/sculptures/IMG_6361-7008f551-1280.jpg",
     "avif": "img/sculptures/IMG_6361-7008f551-640.avif 640w, img/sculptures/IMG_6361-7008f551-1280.avif 1280w, img/sculptures/IMG_6361-7008f551-1920.avif 1920w",
@@ -324,14 +348,6 @@ export const MANIFEST: Record<string, RawImage> = {
     "height": 1080,
     "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQABAABUB8JagCdH8AEjaVXsAA/hV5wMR+sIMSptrI8Bi0d9bSzT7otgVQqxa05Sc117x4upVAfzAzWkSy4iHw0ZkTIxCAAAA="
   },
-  "taekwondo/AO6A4398.jpg": {
-    "src": "img/taekwondo/AO6A4398-a39d05d3-1280.jpg",
-    "avif": "img/taekwondo/AO6A4398-a39d05d3-640.avif 640w, img/taekwondo/AO6A4398-a39d05d3-1280.avif 1280w, img/taekwondo/AO6A4398-a39d05d3-1920.avif 1920w",
-    "webp": "img/taekwondo/AO6A4398-a39d05d3-640.webp 640w, img/taekwondo/AO6A4398-a39d05d3-1280.webp 1280w, img/taekwondo/AO6A4398-a39d05d3-1920.webp 1920w",
-    "width": 6960,
-    "height": 4640,
-    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAsABUB8JbACdAC3yUgAAPudZtufJUSkkWC7Yk82NPWS/UOpaAZX2uc2baXMDJBbJZjDwEbEaYpUNeAAAA=="
-  },
   "taekwondo/IMG_2782.png": {
     "src": "img/taekwondo/IMG_2782-209c9b05-1280.jpg",
     "avif": "img/taekwondo/IMG_2782-209c9b05-640.avif 640w, img/taekwondo/IMG_2782-209c9b05-1280.avif 1280w, img/taekwondo/IMG_2782-209c9b05-1920.avif 1920w",
@@ -355,6 +371,14 @@ export const MANIFEST: Record<string, RawImage> = {
     "width": 1179,
     "height": 2556,
     "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwAwCdASoQACMAPzmOvlevKaYjqqgB4CcJbAC7AFzIjuZDoUz5FNPAAP71o5Cv5AU6T2zNmEXFxcUFgfkMLeu6ZPua/44C0wD1jI98/xcDbh45fZEXos9dtj2G02KPWL5Mo0Ye2MCKYca0ejWhs2lAHK7bjkOc1NX6ReFX4Y1JUdzFLGxQ7Y/fCH2EOeF/NUxxAAAA"
+  },
+  "taekwondo/IMG_5286.jpg": {
+    "src": "img/taekwondo/IMG_5286-becbc94f-1178.jpg",
+    "avif": "img/taekwondo/IMG_5286-becbc94f-640.avif 640w",
+    "webp": "img/taekwondo/IMG_5286-becbc94f-640.webp 640w",
+    "width": 1178,
+    "height": 1562,
+    "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQBACdASoQABUAPzmEuVOvKKWisAgB4CcJbACdMoJYBLMAE/n9rrmkKjIAAMxipoBwVimSwMSuaqaiR0/ezMbYLElGAgU5PCEBGIDxMuePEqumCx3XkFaFt8qZmTGQkoopeAzO0nH0pYSojCH3FaQ7bQlGgF8mbC7QqeHnyfkGMGXMDrdF8AAAAAA="
   },
   "taekwondo/c067298f-9f4b-4217-a235-f6766c9f8fd8.jpg": {
     "src": "img/taekwondo/c067298f-9f4b-4217-a235-f6766c9f8fd8-c18d428a-1280.jpg",

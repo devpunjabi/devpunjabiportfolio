@@ -6,7 +6,8 @@
   "homepage": "https://devpunjabi.github.io/devpunjabiportfolio/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "npm run check:images && tsc --noEmit && vite build",
+    "check:images": "node scripts/check-images.mjs",
     "preview": "vite preview",
     "images": "node scripts/optimize-images.mjs",
     "typecheck": "tsc --noEmit",
