@@ -139,7 +139,7 @@ const PageLayout: React.FC<Props> = ({ data }) => {
                 priority={image.id === 'hero'}
                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   activeImageId === image.id
-                    ? 'opacity-100 scale-100 blur-none animate-kenburns'
+                    ? 'opacity-100 scale-100 blur-none'
                     : 'opacity-0 scale-110 blur-md'
                 }`}
               />

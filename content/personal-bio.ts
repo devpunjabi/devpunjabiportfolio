@@ -24,11 +24,11 @@ export default definePage({
       span: true,
       en: {
         title: 'Machines & Speed',
-        description: 'A race-prepped superbike waiting in the pit box. I am drawn to anything built to be fast and precise — and even more to the engineering that keeps it that way.',
+        description: 'I am drawn to anything built to be fast and precise — and even more to the engineering that keeps it that way. Motorhead and life long motosport enthusiast',
       },
       de: {
         title: 'Maschinen & Geschwindigkeit',
-        description: 'Ein rennfertiges Superbike in der Box. Mich fasziniert alles, was auf Schnelligkeit und Präzision gebaut ist — und noch mehr die Technik, die es dabei hält.',
+        description: 'Mich fasziniert alles, was auf Schnelligkeit und Präzision gebaut ist — und noch mehr die Technik, die es dabei hält. Benzin im Blut und lebenslanger Motorsport-Enthusiast.',
       },
     },
     {
@@ -71,8 +71,8 @@ export default definePage({
     {
       id: 'pb5',
       image: img('personal-bio/IMG_4555.png'), // Live concert under red stage light
-      en: { title: 'Rhythm & Energy', description: 'Recharging in the front row.' },
-      de: { title: 'Rhythmus & Energie', description: 'Auftanken in der ersten Reihe.' },
+      en: { title: 'Rhythm & Energy', description: 'Recharging in the front row. Something about rock music that captivates me. The aggressive riffs and intricate time signatures are a constant source of inspiration.' },
+      de: { title: 'Rhythmus & Energie', description: 'Auftanken in der ersten Reihe. Rockmusik hat etwas, das mich packt. Die aggressiven Riffs und verschachtelten Taktarten sind eine ständige Quelle der Inspiration.' },
     },
   ],
 });

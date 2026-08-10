@@ -226,15 +226,6 @@ body::after {
   transform: scaleY(0);
 }
 
-.img-reveal > img {
-  transform: scale(1.12);
-  transition: transform 1.4s var(--ease-out-expo);
-}
-
-.img-reveal.is-visible > img {
-  transform: scale(1);
-}
-
 /* ------------------------------------------------------------------ */
 /* DECORATIVE MOTION                                                   */
 /* ------------------------------------------------------------------ */
@@ -252,16 +243,6 @@ body::after {
 @keyframes floatY {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-16px); }
-}
-
-/* Slow Ken Burns drift for hero / exhibition images */
-.animate-kenburns {
-  animation: kenburns 16s ease-in-out infinite alternate;
-}
-
-@keyframes kenburns {
-  from { transform: scale(1) translate(0, 0); }
-  to   { transform: scale(1.08) translate(1.5%, -1.5%); }
 }
 
 /* Infinite horizontal marquee */

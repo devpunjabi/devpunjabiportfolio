@@ -348,6 +348,14 @@ export const MANIFEST: Record<string, RawImage> = {
     "height": 1080,
     "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQABAABUB8JagCdH8AEjaVXsAA/hV5wMR+sIMSptrI8Bi0d9bSzT7otgVQqxa05Sc117x4upVAfzAzWkSy4iHw0ZkTIxCAAAA="
   },
+  "taekwondo/IMG_1023.PNG": {
+    "src": "img/taekwondo/IMG_1023-93b91b32-1178.jpg",
+    "avif": "img/taekwondo/IMG_1023-93b91b32-640.avif 640w",
+    "webp": "img/taekwondo/IMG_1023-93b91b32-640.webp 640w",
+    "width": 1178,
+    "height": 2300,
+    "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoQAB8APzmGuVOvKSWisAgB4CcJZQABHaFj19aYKkXjWpAAAP7Ij2oXx3vOwfy7ZyArHkcdWIBhCn67snmuE7RhFUOLjyxfiN13imPr+Lhh6uNn7k/hsahSdBtmrNjLIuKbOHmngsLrYtYUAAA="
+  },
   "taekwondo/IMG_2782.png": {
     "src": "img/taekwondo/IMG_2782-209c9b05-1280.jpg",
     "avif": "img/taekwondo/IMG_2782-209c9b05-640.avif 640w, img/taekwondo/IMG_2782-209c9b05-1280.avif 1280w, img/taekwondo/IMG_2782-209c9b05-1920.avif 1920w",
@@ -364,14 +372,6 @@ export const MANIFEST: Record<string, RawImage> = {
     "height": 797,
     "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAsABUB8JZQAAlxR9PXj6eAA/jMXNvRVLfDIcQlZy5kEep667rIZ87lB/xUlvj/nDWEC6mUHSdHsrf6nCSv2LuwozAZOrfniLejQKSFAAA=="
   },
-  "taekwondo/IMG_4196.PNG": {
-    "src": "img/taekwondo/IMG_4196-a3f843fa-1179.jpg",
-    "avif": "img/taekwondo/IMG_4196-a3f843fa-640.avif 640w",
-    "webp": "img/taekwondo/IMG_4196-a3f843fa-640.webp 640w",
-    "width": 1179,
-    "height": 2556,
-    "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADwAwCdASoQACMAPzmOvlevKaYjqqgB4CcJbAC7AFzIjuZDoUz5FNPAAP71o5Cv5AU6T2zNmEXFxcUFgfkMLeu6ZPua/44C0wD1jI98/xcDbh45fZEXos9dtj2G02KPWL5Mo0Ye2MCKYca0ejWhs2lAHK7bjkOc1NX6ReFX4Y1JUdzFLGxQ7Y/fCH2EOeF/NUxxAAAA"
-  },
   "taekwondo/IMG_5286.jpg": {
     "src": "img/taekwondo/IMG_5286-becbc94f-1178.jpg",
     "avif": "img/taekwondo/IMG_5286-becbc94f-640.avif 640w",
@@ -380,12 +380,20 @@ export const MANIFEST: Record<string, RawImage> = {
     "height": 1562,
     "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQBACdASoQABUAPzmEuVOvKKWisAgB4CcJbACdMoJYBLMAE/n9rrmkKjIAAMxipoBwVimSwMSuaqaiR0/ezMbYLElGAgU5PCEBGIDxMuePEqumCx3XkFaFt8qZmTGQkoopeAzO0nH0pYSojCH3FaQ7bQlGgF8mbC7QqeHnyfkGMGXMDrdF8AAAAAA="
   },
-  "taekwondo/c067298f-9f4b-4217-a235-f6766c9f8fd8.jpg": {
-    "src": "img/taekwondo/c067298f-9f4b-4217-a235-f6766c9f8fd8-c18d428a-1280.jpg",
-    "avif": "img/taekwondo/c067298f-9f4b-4217-a235-f6766c9f8fd8-c18d428a-640.avif 640w, img/taekwondo/c067298f-9f4b-4217-a235-f6766c9f8fd8-c18d428a-1280.avif 1280w",
-    "webp": "img/taekwondo/c067298f-9f4b-4217-a235-f6766c9f8fd8-c18d428a-640.webp 640w, img/taekwondo/c067298f-9f4b-4217-a235-f6766c9f8fd8-c18d428a-1280.webp 1280w",
-    "width": 1825,
-    "height": 1411,
-    "lqip": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAwABUB8JbAC7AEOh36AAP6Vd2OVaEBBeF6pXyY4Hw+7qiEQFRAAAAA="
+  "taekwondo/IMG_5907.jpg": {
+    "src": "img/taekwondo/IMG_5907-6468fdf5-950.jpg",
+    "avif": "img/taekwondo/IMG_5907-6468fdf5-640.avif 640w",
+    "webp": "img/taekwondo/IMG_5907-6468fdf5-640.webp 640w",
+    "width": 950,
+    "height": 1356,
+    "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoQABcAPzmGuVOvKSWisAgB4CcJYwCsACHo4+K53OzM4gAA/LOIELZjT95jlkFaFQgqawdAL8Eru96Sa2+/VLFy7qYMaStYHmm/SWH0ohioVpediIj4Vp7bAAA="
+  },
+  "taekwondo/trainerC.jpg": {
+    "src": "img/taekwondo/trainerC-a1bbead9-1280.jpg",
+    "avif": "img/taekwondo/trainerC-a1bbead9-640.avif 640w, img/taekwondo/trainerC-a1bbead9-1280.avif 1280w, img/taekwondo/trainerC-a1bbead9-1920.avif 1920w",
+    "webp": "img/taekwondo/trainerC-a1bbead9-640.webp 640w, img/taekwondo/trainerC-a1bbead9-1280.webp 1280w, img/taekwondo/trainerC-a1bbead9-1920.webp 1920w",
+    "width": 2048,
+    "height": 1536,
+    "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADQAQCdASoQAAwABUB8JbACdADz2s30AAD+kJC0JGdKyi3EA3dgeYzQfzLqIfZWShnAAAAA"
   }
 };
