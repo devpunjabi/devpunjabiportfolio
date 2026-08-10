@@ -89,14 +89,14 @@ export default definePage({
     },
     {
       id: 'sc11',
-      image: img('personal-bio/IMG_5902.jpg'), // Painted mandala medallion, white with gold line work
+      image: img('digital-3d/gold-plume.jpg'), // Painted mandala medallion, white with gold line work
       en: {
         title: 'Gilded Mandala',
-        description: 'The mandala medallion after paint: a white base, gold line work along every edge, and gloved hands for the parts too small to hold any other way.',
+        description: 'The mandala art created on nomad sculpt.',
       },
       de: {
         title: 'Goldenes Mandala',
-        description: 'Das Mandala-Medaillon nach dem Bemalen: weiße Grundierung, goldene Linien entlang jeder Kante — und Handschuhe für die Stellen, die man anders nicht halten kann.',
+        description: 'Die Mandala-Kunst, die auf Nomad Sculpt erstellt wurde.',
       },
     },
   ],
