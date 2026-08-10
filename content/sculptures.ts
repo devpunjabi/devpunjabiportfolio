@@ -89,7 +89,7 @@ export default definePage({
     },
     {
       id: 'sc11',
-      image: img('digital-3d/gold-plume.jpg'), // Painted mandala medallion, white with gold line work
+      image: img('digital-3d/gold-plume.png'), // Painted mandala medallion, white with gold line work
       en: {
         title: 'Gilded Mandala',
         description: 'The mandala art created on nomad sculpt.',

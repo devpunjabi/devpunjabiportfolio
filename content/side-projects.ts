@@ -20,7 +20,7 @@ export default definePage({
   sections: [
     {
       id: 'sp1',
-      image: img('personal-bio/IMG_5902.png'), // Layered ornament under a gold matcap — sculpted by hand
+      image: img('personal-bio/IMG_5902.jpg'), // Layered ornament under a gold matcap — sculpted by hand
       span: true,
       en: {
         title: 'Art from Mathematics — The 3D Mandelbulb',
