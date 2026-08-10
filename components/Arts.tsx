@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PageData, GalleryItem } from '../types';
-import { ArrowRight, X, ChevronLeft, ChevronRight, Maximize2, ZoomIn, ZoomOut } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, X, ChevronLeft, ChevronRight, Instagram, Maximize2, ZoomIn, ZoomOut } from 'lucide-react';
+import { findSocial } from '../config/site';
 import { useLanguage } from '../contexts/LanguageContext';
 import Reveal from './Reveal';
 import Img from './Img';
@@ -33,6 +34,8 @@ const Arts: React.FC = () => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   });
+
+  const instagram = findSocial('instagram');
 
   const paintings = content['paintings'];
   const sculptures = content['sculptures'];
@@ -119,6 +122,24 @@ const Arts: React.FC = () => {
           <h1 className="text-4xl md:text-5xl lg:text-[4.5rem] font-serif font-light text-stone-900 leading-[1] tracking-tight animate-blur-up">
             {language === 'en' ? 'Exhibitions & Form' : 'Ausstellungen & Form'}
           </h1>
+
+          {/* Where the work is posted as it is finished */}
+          {instagram && (
+            <a
+              href={instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('followOnInstagram')}
+              className="group mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-stone-500 hover:text-stone-900 transition-colors duration-300 animate-fade-in animate-delay-100"
+            >
+              <Instagram size={14} className="shrink-0" />
+              <span>{instagram.handle ?? instagram.label}</span>
+              <ArrowUpRight
+                size={12}
+                className="shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+          )}
         </div>
       </div>
 

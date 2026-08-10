@@ -10,11 +10,21 @@
     <meta name="theme-color" content="#fafaf9" />
     <link rel="canonical" href="https://devpunjabi.github.io/devpunjabiportfolio/" />
 
+    <!--
+      This is a GitHub Pages project site, so the robots.txt crawlers actually
+      fetch is https://devpunjabi.github.io/robots.txt — it belongs to the root
+      user-pages repo, not this one. public/robots.txt here is only a fallback
+      for a future custom domain, which makes this tag the directive that counts.
+    -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+
     <link rel="icon" type="image/svg+xml" href="/devpunjabiportfolio/favicon.svg" />
 
     <!-- Link previews (Slack, LinkedIn, WhatsApp, X) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Dev Punjabi" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="de_DE" />
     <meta property="og:title" content="Dev Punjabi — Research Engineer" />
     <meta property="og:description" content="Machine learning and AI systems research in Karlsruhe, Germany — alongside sculpture, digital 3D art and Taekwondo." />
     <meta property="og:url" content="https://devpunjabi.github.io/devpunjabiportfolio/" />
@@ -31,13 +41,40 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
+    <!--
+      Structured data describing the person behind the site. Search engines use
+      this to build an entity rather than guessing from prose.
+
+      `sameAs` is what most strongly ties this page to the same person elsewhere,
+      so fill in the profile URLs in config/site.ts and mirror them here as you
+      publish them.
+    -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Dev Punjabi",
         "jobTitle": "Research Engineer",
+        "description": "Research engineer working on machine learning for chemistry — reaction prediction, IR spectrum prediction and agentic research-data curation.",
         "url": "https://devpunjabi.github.io/devpunjabiportfolio/",
+        "image": "https://devpunjabi.github.io/devpunjabiportfolio/og-image.jpg",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Karlsruhe Institute of Technology",
+          "alternateName": "KIT",
+          "url": "https://www.kit.edu/"
+        },
+        "knowsAbout": [
+          "Machine learning",
+          "Research data management",
+          "Cheminformatics",
+          "Reaction prediction",
+          "Infrared spectroscopy",
+          "Sculpture",
+          "Digital 3D modelling",
+          "Taekwondo"
+        ],
+        "knowsLanguage": ["en", "de"],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Karlsruhe",

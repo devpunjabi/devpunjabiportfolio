@@ -9,6 +9,8 @@ export interface SocialLink {
   id: string;
   label: string;
   url: string;
+  /** Public handle, where showing it reads better than the platform name. */
+  handle?: string;
 }
 
 export const SITE = {
@@ -31,9 +33,9 @@ export const SITE = {
  */
 const SOCIAL_URLS = {
   github: '',
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/dev-punjabi-9562a0150/',
   scholar: '',
-  instagram: '',
+  instagram: 'https://www.instagram.com/artworks.dev/',
   twitter: '',
 } as const;
 
@@ -45,12 +47,31 @@ const SOCIAL_LABELS: Record<keyof typeof SOCIAL_URLS, string> = {
   twitter: 'X',
 };
 
+/** Shown instead of the platform name where the handle is the recognisable part. */
+const SOCIAL_HANDLES: Partial<Record<keyof typeof SOCIAL_URLS, string>> = {
+  instagram: '@artworks.dev',
+};
+
 /** Only the links that have actually been configured. */
 export const SOCIALS: SocialLink[] = (
   Object.keys(SOCIAL_URLS) as Array<keyof typeof SOCIAL_URLS>
 )
   .filter((id) => SOCIAL_URLS[id].trim().length > 0)
-  .map((id) => ({ id, label: SOCIAL_LABELS[id], url: SOCIAL_URLS[id] }));
+  .map((id) => ({
+    id,
+    label: SOCIAL_LABELS[id],
+    url: SOCIAL_URLS[id],
+    handle: SOCIAL_HANDLES[id],
+  }));
+
+/**
+ * Look up one profile for a page that links to it directly — the Arts page
+ * points at Instagram, the career page at LinkedIn. Returns undefined when the
+ * URL has not been filled in, so the caller renders nothing rather than a dead
+ * link, the same rule the footer follows.
+ */
+export const findSocial = (id: keyof typeof SOCIAL_URLS): SocialLink | undefined =>
+  SOCIALS.find((social) => social.id === id);
 
 /**
  * EmailJS credentials come from the environment (see .env.example), never from
@@ -66,3 +87,17 @@ export const EMAILJS = {
 export const EMAILJS_CONFIGURED = Boolean(
   EMAILJS.serviceId && EMAILJS.templateId && EMAILJS.publicKey
 );
+
+/**
+ * Google Analytics 4. The measurement ID (`G-XXXXXXXXXX`) comes from the
+ * environment, so a checkout without one loads no Google script at all and
+ * sends no requests — analytics is opt-in per deployment, not baked into source.
+ *
+ * Set VITE_GA_MEASUREMENT_ID in .env.local for local runs, and as a build-time
+ * variable wherever `npm run build` happens for the deployed site.
+ */
+export const ANALYTICS = {
+  measurementId: import.meta.env.VITE_GA_MEASUREMENT_ID ?? '',
+};
+
+export const ANALYTICS_ENABLED = /^G-[A-Z0-9]+$/i.test(ANALYTICS.measurementId.trim());

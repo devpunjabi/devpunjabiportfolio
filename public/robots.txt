@@ -1,0 +1,11 @@
+# NOTE: on a GitHub Pages *project* site this file is served at
+# /devpunjabiportfolio/robots.txt, and crawlers only read the one at the domain
+# root (https://devpunjabi.github.io/robots.txt) — which lives in the root
+# user-pages repo, not here. So this file has no effect today; it is here for a
+# future custom domain. The directive that counts meanwhile is the
+# <meta name="robots"> tag in index.html.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://devpunjabi.github.io/devpunjabiportfolio/sitemap.xml

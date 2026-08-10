@@ -7,6 +7,8 @@ import Home from './components/Home';
 import PageLayout from './components/PageLayout';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import { SOCIALS } from './config/site';
+import { usePageMeta } from './hooks/usePageMeta';
+import { useAnalytics } from './hooks/useAnalytics';
 
 // Home and PageLayout are in the entry bundle because they cover the landing page
 // and four of the routes. The two heavier one-off screens load on demand.
@@ -25,6 +27,18 @@ const ScrollToTop = () => {
     const frameId = requestAnimationFrame(handleScroll);
     return () => cancelAnimationFrame(frameId);
   }, [pathname]);
+  return null;
+};
+
+/**
+ * Per-route document metadata and the analytics pageview, in that order — the
+ * pageview reports `document.title`, so the title has to be updated first.
+ * Renders nothing; it only needs to sit inside the router and the language
+ * provider to see route and language changes.
+ */
+const SiteMeta = () => {
+  usePageMeta();
+  useAnalytics();
   return null;
 };
 
@@ -134,6 +148,7 @@ const App: React.FC = () => {
     <LanguageProvider>
       <HashRouter>
         <ScrollToTop />
+        <SiteMeta />
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  One entry, because the app routes on the URL hash (#/career-bio, #/arts, …)
+  and search engines drop the fragment: every route resolves to this single
+  crawlable URL. Listing the hash routes here would not add indexable pages.
+
+  Submit this file in Google Search Console (Sitemaps › add
+  devpunjabiportfolio/sitemap.xml). If the router is ever switched to
+  BrowserRouter with a 404.html fallback, add one <url> per route here.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://devpunjabi.github.io/devpunjabiportfolio/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

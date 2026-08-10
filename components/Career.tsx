@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Briefcase, Calendar } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Briefcase, Calendar, Linkedin } from 'lucide-react';
+import { findSocial } from '../config/site';
 import { useLanguage } from '../contexts/LanguageContext';
 import Reveal from './Reveal';
 import Img from './Img';
@@ -15,6 +16,7 @@ const Career: React.FC = () => {
   const { content, navigation, t } = useLanguage();
   const isDesktop = useIsDesktop();
   const data = content['career-bio'];
+  const linkedin = findSocial('linkedin');
 
   const [activeImageId, setActiveImageId] = useState('hero');
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -99,6 +101,24 @@ const Career: React.FC = () => {
           <h1 className="text-4xl md:text-5xl lg:text-[4.5rem] font-serif font-light text-stone-900 leading-[1] tracking-tight animate-blur-up">
             {data.title}
           </h1>
+
+          {/* Full role history and recommendations live on LinkedIn */}
+          {linkedin && (
+            <a
+              href={linkedin.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('connectOnLinkedIn')}
+              className="group mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-stone-500 hover:text-stone-900 transition-colors duration-300 animate-fade-in animate-delay-100"
+            >
+              <Linkedin size={14} className="shrink-0" />
+              <span>{linkedin.handle ?? linkedin.label}</span>
+              <ArrowUpRight
+                size={12}
+                className="shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+          )}
         </div>
       </div>
 
