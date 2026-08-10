@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           <div>
             <h2 className="text-stone-500 font-medium tracking-[0.2em] text-sm mb-8 pl-1">{copy.eyebrow}</h2>
 
-            <h1 className="text-7xl md:text-8xl lg:text-[10rem] font-serif font-light text-stone-900 leading-[0.9] -ml-1 mb-10 tracking-tighter">
+            <h1 className="text-5xl md:text-6xl lg:text-[7rem] font-serif font-light text-stone-900 leading-[0.95] -ml-1 mb-10 tracking-tighter">
               {copy.headlineLine1} <br />
               <span className="italic text-stone-400">{copy.headlineLine2}</span>
             </h1>

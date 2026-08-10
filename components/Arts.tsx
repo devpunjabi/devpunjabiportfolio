@@ -116,7 +116,7 @@ const Arts: React.FC = () => {
           <span className="text-[10px] font-bold tracking-[0.25em] text-stone-400 uppercase mb-4 block pl-1 animate-fade-in animate-delay-100">
             {language === 'en' ? 'CREATIVE GALLERY' : 'KREATIVE GALERIE'}
           </span>
-          <h1 className="text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-stone-900 leading-[0.95] tracking-tight animate-blur-up">
+          <h1 className="text-4xl md:text-5xl lg:text-[4.5rem] font-serif font-light text-stone-900 leading-[1] tracking-tight animate-blur-up">
             {language === 'en' ? 'Exhibitions & Form' : 'Ausstellungen & Form'}
           </h1>
         </div>

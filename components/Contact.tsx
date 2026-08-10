@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
           <span className="text-[10px] font-bold tracking-[0.25em] text-stone-400 uppercase mb-4 block pl-1 animate-fade-in animate-delay-100">
             {t('reachOut')}
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-[5rem] font-serif font-light text-stone-900 leading-[1.05] tracking-tight max-w-4xl animate-blur-up">
+          <h1 className="text-4xl md:text-5xl lg:text-[4.5rem] font-serif font-light text-stone-900 leading-[1.05] tracking-tight max-w-4xl animate-blur-up">
             {t('reachOutTitle')}
           </h1>
         </div>
